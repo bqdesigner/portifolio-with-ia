@@ -263,6 +263,50 @@
       to   { opacity: 1; transform: translateY(0); }
     }
 
+    /* ─── Back link ──────────────────────────────────────────────── */
+    .back-link {
+      position: fixed;
+      top: 20px;
+      left: 24px;
+      z-index: 1001;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 0.8125rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.5);
+      text-decoration: none;
+      padding: 7px 14px;
+      border-radius: 100px;
+      border: 1px solid rgba(255,255,255,0.10);
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      transition: color 200ms ease, border-color 200ms ease, background 200ms ease;
+    }
+
+    .back-link:hover {
+      color: #ffffff;
+      border-color: rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.10);
+    }
+
+    /* ─── Responsive nav ─────────────────────────────────────────── */
+    @media (max-width: 600px) {
+      .hero-nav {
+        flex-wrap: nowrap;
+        gap: 8px;
+      }
+
+      .nav-pill .pill-label { display: none; }
+      .nav-pill .pill-num   { display: inline; }
+
+      .nav-pill {
+        padding: 9px 14px;
+        font-size: 0.8125rem;
+      }
+    }
+
     /* ─── Section Base ──────────────────────────────────────────── */
     .phase-section {
       width: 100%;
@@ -725,13 +769,15 @@
   <p class="hero-description">Como designers, PMs e devs estão usando IA em cada etapa do Double Diamond — com ferramentas reais e exemplos práticos do mercado.</p>
 
   <nav class="hero-nav">
-    <a href="#discovery" class="nav-pill" data-phase="discovery">01 Discovery</a>
-    <a href="#define"    class="nav-pill" data-phase="define">02 Define</a>
-    <a href="#develop"   class="nav-pill" data-phase="develop">03 Develop</a>
-    <a href="#delivery"  class="nav-pill" data-phase="delivery">04 Delivery</a>
-    <a href="#minhas-iniciativas"  class="nav-pill" data-phase="delivery">05 Meus experimentos</a>
+    <a href="#discovery" class="nav-pill" data-phase="discovery"><span class="pill-num">01</span><span class="pill-label"> Discovery</span></a>
+    <a href="#define"    class="nav-pill" data-phase="define"><span class="pill-num">02</span><span class="pill-label"> Define</span></a>
+    <a href="#develop"   class="nav-pill" data-phase="develop"><span class="pill-num">03</span><span class="pill-label"> Develop</span></a>
+    <a href="#delivery"  class="nav-pill" data-phase="delivery"><span class="pill-num">04</span><span class="pill-label"> Delivery</span></a>
+    <a href="#minhas-iniciativas" class="nav-pill" data-phase="delivery"><span class="pill-num">05</span><span class="pill-label"> Meus experimentos</span></a>
   </nav>
 </section>
+
+<a href="/" class="back-link">← Página inicial</a>
 
 <div class="section-divider"></div>
 
