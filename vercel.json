@@ -1,5 +1,3 @@
 {
-  "redirects": [
-    { "source": "/", "destination": "/ia-processo-design", "permanent": false }
-  ]
+  "cleanUrls": true
 }
