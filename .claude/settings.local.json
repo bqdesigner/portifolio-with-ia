@@ -6,7 +6,9 @@
       "Bash(where python3:*)",
       "Bash(where python:*)",
       "Bash(where npx:*)",
-      "Bash(where npm:*)"
+      "Bash(where npm:*)",
+      "Bash(mkdir -p ia-processo-design)",
+      "Bash(mv index.html ia-processo-design/index.html)"
     ]
   }
 }
