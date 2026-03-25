@@ -314,11 +314,6 @@
       position: relative;
       height: 800px;
       cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-
-    .project-card:hover {
-      transform: scale(0.985);
     }
 
     .project-card img.project-img {
@@ -331,6 +326,11 @@
       object-position: center top;
       pointer-events: none;
       border-radius: 24px;
+      transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    }
+
+    .project-card:hover img.project-img {
+      transform: scale(1.04);
     }
 
     .project-card--small img.project-img {
@@ -389,11 +389,50 @@
       line-height: 1;
     }
 
-    .project-year {
+    .project-action {
+      position: relative;
       font-size: 20px;
       font-weight: 700;
       line-height: 1;
       white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    .project-year {
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .project-cta {
+      text-transform: uppercase;
+      position: absolute;
+      top: 0;
+      right: 0;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      opacity: 0;
+      transform: translateX(-8px);
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+
+    .project-cta-arrow {
+      display: inline-block;
+      transition: transform 0.3s ease;
+      font-size: 24px;
+    }
+
+    .project-card:hover .project-year {
+      opacity: 0;
+      transform: translateX(8px);
+    }
+
+    .project-card:hover .project-cta {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .project-card:hover .project-cta-arrow {
+      transform: translateX(6px);
     }
 
     .project-info--dark {
@@ -704,7 +743,10 @@
           <div class="project-name">WiseChat</div>
           <div class="project-desc">Construindo uma ferramenta totalmente integrada e personalizável.</div>
         </div>
-        <div class="project-year">// 2025</div>
+        <div class="project-action">
+          <div class="project-year">// 2025</div>
+          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+        </div>
       </div>
     </div>
 
@@ -717,7 +759,10 @@
           <div class="project-name">Frete.com</div>
           <div class="project-desc">Como a Gamificação foi trabalhada dentro de uma plataforma B2B.</div>
         </div>
-        <div class="project-year">// 2025</div>
+        <div class="project-action">
+          <div class="project-year">// 2025</div>
+          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+        </div>
       </div>
     </div>
 
@@ -745,7 +790,10 @@
           <div class="project-name">WiseApp</div>
           <div class="project-desc">App de roteirização para motoristas transportar de forma mais inteligente.</div>
         </div>
-        <div class="project-year">// 2024</div>
+        <div class="project-action">
+          <div class="project-year">// 2024</div>
+          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+        </div>
       </div>
     </div>
 
@@ -758,7 +806,10 @@
           <div class="project-name">Frete.com</div>
           <div class="project-desc">Construindo um SaaS que gera receita de 100MM/ano.</div>
         </div>
-        <div class="project-year">// 2023</div>
+        <div class="project-action">
+          <div class="project-year">// 2023</div>
+          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+        </div>
       </div>
     </div>
 
@@ -774,7 +825,10 @@
           <div class="project-name">Nav/Dasa</div>
           <div class="project-desc">Landing page desenvolvida para explicar as ferramentas do NAV Pro para médicos.</div>
         </div>
-        <div class="project-year">// 2022</div>
+        <div class="project-action">
+          <div class="project-year">// 2022</div>
+          <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+        </div>
       </div>
     </div>
 
@@ -788,7 +842,10 @@
             <div class="project-name">Bant</div>
             <div class="project-desc">Construindo um SaaS que gera receita de 100MM/ano.</div>
           </div>
-          <div class="project-year">// 2021</div>
+          <div class="project-action">
+            <div class="project-year">// 2021</div>
+            <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          </div>
         </div>
       </div>
       <div class="project-card project-card--small" style="background: #7066BA;">
@@ -799,7 +856,10 @@
             <div class="project-name">BeeBox</div>
             <div class="project-desc">Construindo um SaaS que gera receita de 100MM/ano.</div>
           </div>
-          <div class="project-year">// 2020</div>
+          <div class="project-action">
+            <div class="project-year">// 2020</div>
+            <div class="project-cta">Ver case <span class="project-cta-arrow">&rarr;</span></div>
+          </div>
         </div>
       </div>
     </div>

@@ -15,7 +15,9 @@
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/7bd178b0-1e29-4c5d-a8bd-bed4498f9f46\" -o logo_vector2.svg)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/e9e2d2fa-7e8a-4f6c-b304-8bda91e781cf\" -o logo_vector3.svg)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/1787ad50-2089-42c7-a8de-10039409e40d\" -o scroll_indicator.svg)",
-      "Bash(git add:*)"
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)"
     ]
   }
 }
