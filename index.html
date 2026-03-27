@@ -148,18 +148,43 @@
       pointer-events: none;
     }
 
-    .nav a {
+    .nav a, .nav .nav-item-wrapper {
       color: var(--color-dark);
-      transition: color 0.2s;
+      padding: 8px 16px;
+      border-radius: 500px;
+      transition: color 0.2s, background 0.2s;
+      white-space: nowrap;
     }
 
-    .nav a:hover {
-      color: var(--color-mid);
+    .nav a:hover, .nav a:active {
+      background: #E9ECEF;
     }
 
     .nav-divider {
       color: var(--color-muted);
       font-size: 18px;
+    }
+
+    .nav-item-wrapper {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .nav-tag {
+      display: flex;
+      padding: 4px;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      border-radius: 4px;
+      background: #1DA1F2;
+      font-size: 10px;
+      font-weight: 500;
+      color: #FFFFFF;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      line-height: 1;
     }
 
     /* ===== HAMBURGER BUTTON ===== */
@@ -250,7 +275,7 @@
       transition: opacity 0.3s, transform 0.3s;
     }
 
-    .header--hidden .logo {
+    .header--scrolled .logo {
       opacity: 0;
       transform: translateY(-10px);
       pointer-events: none;
@@ -260,7 +285,7 @@
       transition: opacity 0.3s, transform 0.3s;
     }
 
-    .header--hidden .header-email {
+    .header--scrolled .header-email {
       opacity: 0;
       transform: translateY(-10px);
       pointer-events: none;
@@ -324,17 +349,18 @@
     .scroll-indicator {
       position: absolute;
       left: 50%;
-      transform: translateX(-50%);
+      transform: translateX(-50%) translateY(-20px);
       bottom: 80px;
       width: 24px;
       height: 52px;
       opacity: 0;
-      transition: opacity 0.6s ease;
+      transition: opacity 0.8s ease, transform 0.8s ease;
     }
 
     .scroll-indicator--visible {
       opacity: 1;
-      animation: scrollBounce 2s ease-in-out infinite;
+      transform: translateX(-50%) translateY(0);
+      animation: scrollBounce 2s ease-in-out 0.8s infinite;
     }
 
     @keyframes scrollBounce {
@@ -501,6 +527,18 @@
       border-radius: 24px;
     }
 
+    .footer-cta-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 48px;
+    }
+
+    .footer-cta-left {
+      text-align: left;
+    }
+
     .footer-cta-title {
       font-size: 64px;
       font-weight: 500;
@@ -515,11 +553,32 @@
       letter-spacing: -3.84px;
       line-height: 1;
       color: var(--color-dark);
-      border-bottom: 2px solid var(--color-accent);
       padding-bottom: 24px;
       margin-top: 22px;
       display: inline-block;
       transition: color 0.2s;
+      position: relative;
+    }
+
+    .footer-cta-email::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--color-accent);
+      transition: width 0.4s ease;
+    }
+
+    .footer-cta-email:hover::after {
+      width: 100%;
+    }
+
+    .footer-cta-email:not(:hover)::after {
+      left: auto;
+      right: 0;
+      transition: width 0.4s ease;
     }
 
     .footer-cta-email:hover {
@@ -532,7 +591,6 @@
       gap: 24px;
       font-size: 20px;
       text-transform: uppercase;
-      margin-top: 48px;
       flex-shrink: 0;
     }
 
@@ -758,6 +816,16 @@
         padding: 32px 24px;
       }
 
+      .footer-cta-top {
+        flex-direction: column;
+        align-items: center;
+        gap: 32px;
+      }
+
+      .footer-cta-left {
+        text-align: center;
+      }
+
       .footer-cta-title,
       .footer-cta-email {
         font-size: 28px;
@@ -795,6 +863,11 @@
       <a href="#contato">Contato</a>
       <span class="nav-divider">/</span>
       <a href="ia-processo-design/index.html">Meu guia de IA</a>
+      <span class="nav-divider">/</span>
+      <span class="nav-item-wrapper">
+        <span>Manda freelas</span>
+        <span class="nav-tag">Em breve</span>
+      </span>
     </nav>
 
     <!-- Hamburger (mobile only) -->
@@ -814,6 +887,11 @@
     <a href="#contato" onclick="closeMobileMenu()">Contato</a>
     <span class="nav-divider">/</span>
     <a href="ia-processo-design/index.html" onclick="closeMobileMenu()">Meu guia de IA</a>
+    <span class="nav-divider">/</span>
+    <span class="nav-item-wrapper">
+      <span>Manda freelas</span>
+      <span class="nav-tag">Em breve</span>
+    </span>
     <span class="nav-divider">/</span>
     <a href="mailto:bqdesigner@outlook.com">bqdesigner@outlook.com</a>
   </div>
@@ -925,16 +1003,18 @@
 
     <!-- FOOTER CTA -->
     <section class="footer-cta" id="contato">
-      <div>
-        <h2 class="footer-cta-title">Bora trabalhar juntos?</h2>
-        <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
-      </div>
-      <div class="footer-links">
+      <div class="footer-cta-top">
+        <div class="footer-cta-left">
+          <h2 class="footer-cta-title">Bora trabalhar juntos?</h2>
+          <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
+        </div>
+        <div class="footer-links">
         <a href="https://www.linkedin.com/in/itsbrunoqueiros/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
         <span class="footer-links-dot">&bull;</span>
         <a href="https://dribbble.com/itsbrunoqueiros" target="_blank" rel="noopener noreferrer">Dribbble</a>
         <span class="footer-links-dot">&bull;</span>
         <a href="https://medium.com/@brunoqueiros" target="_blank" rel="noopener noreferrer">Medium</a>
+        </div>
       </div>
     </section>
 
@@ -945,7 +1025,7 @@
 
   <!-- FOOTER CREDIT -->
   <footer class="footer-credit">
-    <div class="footer-credit-text" id="footerCredit" data-text="Designed by Human - Coded by IA"></div>
+    <div class="footer-credit-text" id="footerCredit" data-text="Designed by Human - Coded by IA - Brunão 2026 ©"></div>
   </footer>
 
   <script>
