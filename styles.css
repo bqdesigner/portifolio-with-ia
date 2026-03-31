@@ -380,6 +380,11 @@ a {
   transition: transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+.project-card--link {
+  cursor: pointer;
+  display: block;
+}
+
 .project-card:hover img.project-img {
   transform: scale(1.04);
 }
@@ -699,6 +704,160 @@ a {
   animation: blink-caret 0.7s step-end infinite;
 }
 
+/* ===== CASE PAGE ===== */
+.case-page {
+  padding-top: 320px;
+}
+
+.case-header-section {
+  padding: 0 48px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-subtitle {
+  font-size: 32px;
+  font-weight: 500;
+  letter-spacing: -1.92px;
+  line-height: 1;
+  color: var(--color-mid);
+}
+
+.case-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -2.4px;
+  line-height: 1;
+  color: var(--color-dark);
+}
+
+.case-hero {
+  display: flex;
+  gap: 24px;
+  padding: 0 48px;
+  margin-top: 48px;
+}
+
+.case-hero-visual {
+  width: 888px;
+  height: 490px;
+  flex-shrink: 0;
+  background: #F7F7F7;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-hero-img {
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+}
+
+.case-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.case-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.case-meta-label {
+  font-size: 20px;
+  font-weight: 500;
+  letter-spacing: -1.2px;
+  line-height: 1;
+  color: var(--color-mid);
+}
+
+
+.case-meta-value {
+  font-size: 24px;
+  font-weight: 500;
+  letter-spacing: -1.44px;
+  line-height: 1;
+  color: var(--color-dark);
+}
+
+.case-meta-value + .case-meta-value {
+  margin-top: 8px;
+}
+
+.case-section {
+  padding: 0 48px;
+  margin-top: 80px;
+  max-width: 1164px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.case-section-title {
+  font-size: 40px;
+  font-weight: 500;
+  letter-spacing: -2.4px;
+  line-height: 1;
+  color: var(--color-dark);
+  margin-bottom: 24px;
+}
+
+.case-section-text {
+  font-size: 24px;
+  font-weight: 500;
+  line-height: 1.5;
+  color: var(--color-mid);
+  max-width: 888px;
+}
+
+.case-section-text p + p {
+  margin-top: 24px;
+}
+
+.case-img-full {
+  width: 100%;
+  max-width: 1344px;
+  margin: 80px auto 0;
+  padding: 0 48px;
+  background: #F7F7F7;
+  border-radius: 8px;
+}
+
+.case-img-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.case-img-placeholder {
+  width: 100%;
+  height: 680px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.case-img-placeholder--bottom {
+  align-items: flex-end;
+}
+
+.case-img-inner {
+  max-width: 80%;
+  max-height: 80%;
+  object-fit: contain;
+}
+
+.case-footer {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 250px 48px;
+}
+
 /* ===== RESPONSIVE: TABLET ===== */
 @media (max-width: 1200px) {
   .hero-text {
@@ -728,6 +887,19 @@ a {
   .footer-cta {
     height: calc(100vh - 96px);
     padding: 48px;
+  }
+
+  .case-hero {
+    flex-direction: column;
+  }
+
+  .case-hero-visual {
+    width: 100%;
+    height: 400px;
+  }
+
+  .case-footer {
+    padding: 120px 48px;
   }
 }
 
@@ -850,6 +1022,92 @@ a {
   }
 
   .footer-links {
+    font-size: 16px;
+    padding-bottom: 0;
+  }
+
+  .case-page {
+    padding-top: 100px;
+  }
+
+  .case-header-section {
+    padding: 0 24px;
+  }
+
+  .case-subtitle {
+    font-size: 24px;
+  }
+
+  .case-title {
+    font-size: 28px;
+    letter-spacing: -1.5px;
+  }
+
+  .case-hero {
+    flex-direction: column;
+    padding: 0 24px;
+    margin-top: 32px;
+  }
+
+  .case-hero-visual {
+    width: 100%;
+    height: 280px;
+  }
+
+  .case-meta {
+    gap: 24px;
+  }
+
+  .case-meta-label {
+    font-size: 16px;
+  }
+
+  .case-meta-value {
+    font-size: 18px;
+  }
+
+  .case-section {
+    padding: 0 24px;
+    margin-top: 48px;
+  }
+
+  .case-section-title {
+    font-size: 28px;
+    letter-spacing: -1.5px;
+  }
+
+  .case-section-text {
+    font-size: 18px;
+  }
+
+  .case-img-full {
+    padding: 0 24px;
+    margin-top: 48px;
+  }
+
+  .case-img-placeholder {
+    height: 300px;
+  }
+
+  .case-footer {
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    padding: 80px 24px;
+    text-align: center;
+  }
+
+  .case-footer .footer-cta-left {
+    text-align: center;
+  }
+
+  .case-footer .footer-cta-title,
+  .case-footer .footer-cta-email {
+    font-size: 28px;
+    letter-spacing: -1px;
+  }
+
+  .case-footer .footer-links {
     font-size: 16px;
     padding-bottom: 0;
   }

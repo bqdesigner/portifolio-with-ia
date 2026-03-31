@@ -113,8 +113,8 @@ function closeMobileMenu() {
   }
 })();
 
-// Disable link navigation on project cards (cases not ready)
-document.querySelectorAll('.project-card').forEach(function(card) {
+// Disable link navigation on project cards (cases not ready), except linked ones
+document.querySelectorAll('.project-card:not(.project-card--link)').forEach(function(card) {
   card.style.cursor = 'default';
   card.addEventListener('click', function(e) {
     e.preventDefault();
