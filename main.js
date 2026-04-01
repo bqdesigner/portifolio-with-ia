@@ -1,3 +1,15 @@
+// Reduced motion preference
+var prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// Logo: smooth scroll to top
+var logoLink = document.getElementById('logoLink');
+if (logoLink) {
+  logoLink.addEventListener('click', function(e) {
+    e.preventDefault();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  });
+}
+
 // Header: blur nav on scroll + hide nav/email on scroll down, show on scroll up
 const header = document.getElementById('header');
 var lastScrollY = 0;
@@ -60,6 +72,14 @@ function closeMobileMenu() {
       wordToLine.push(lineIdx);
     });
   });
+
+  // If reduced motion, show all words immediately
+  if (prefersReducedMotion) {
+    allWords.forEach(function(w) { w.classList.add('visible'); });
+    var indicator = document.querySelector('.scroll-indicator');
+    if (indicator) indicator.classList.add('scroll-indicator--visible');
+    return;
+  }
 
   var wordIndex = 0;
   var delay = 300;
@@ -143,6 +163,12 @@ document.querySelectorAll('.project-card:not(.project-card--link)').forEach(func
 
   var started = false;
 
+  // If reduced motion, show all words immediately
+  if (prefersReducedMotion) {
+    spans.forEach(function(s) { s.classList.add('visible'); });
+    return;
+  }
+
   function startTypewriter() {
     if (started) return;
     started = true;
@@ -182,6 +208,9 @@ document.querySelectorAll('.project-card:not(.project-card--link)').forEach(func
   var track = document.getElementById('marqueeTrack');
   if (!track) return;
 
+  // Skip marquee animation for reduced motion
+  if (prefersReducedMotion) return;
+
   var originalHTML = track.innerHTML;
   track.innerHTML = originalHTML + originalHTML + originalHTML + originalHTML;
 
@@ -190,6 +219,7 @@ document.querySelectorAll('.project-card:not(.project-card--link)').forEach(func
   var position = 0;
   var scrollDirection = -1;
   var prevScrollY = window.scrollY;
+  var rafId = null;
 
   window.addEventListener('scroll', function() {
     var currentY = window.scrollY;
@@ -231,8 +261,17 @@ document.querySelectorAll('.project-card:not(.project-card--link)').forEach(func
 
       track.style.transform = 'translate3d(' + position + 'px, 0, 0)';
     }
-    requestAnimationFrame(animate);
+    rafId = requestAnimationFrame(animate);
   }
+
+  // Pause when tab is not visible
+  document.addEventListener('visibilitychange', function() {
+    if (document.hidden) {
+      if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    } else {
+      if (!rafId) animate();
+    }
+  });
 
   window.addEventListener('load', function() {
     measureSet();
