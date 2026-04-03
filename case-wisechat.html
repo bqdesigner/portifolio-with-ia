@@ -79,13 +79,13 @@
   <main class="case-page" id="case-content">
 
     <!-- Sub + Title -->
-    <div class="case-header-section case-reveal">
+    <div class="case-header-section">
       <p class="case-subtitle">Work</p>
       <h1 class="case-title">Construindo uma ferramenta totalmente integrada e personalizável</h1>
     </div>
 
     <!-- Hero Image + Meta -->
-    <div class="case-hero case-reveal">
+    <div class="case-hero">
       <div class="case-hero-visual" style="background: #1D1F2E;">
         <img class="case-hero-img" src="assets/case-wisechat/main-case-img.png" alt="Imagem principal do case" width="710" height="490" />
       </div>
@@ -109,7 +109,7 @@
     </div>
 
     <!-- Desafio -->
-    <section class="case-section case-reveal">
+    <section class="case-section">
       <h2 class="case-section-title">Desafio</h2>
       <div class="case-section-text">
         <p>When the pandemic hit in 2020, I fell into a dark place mentally. The regular anxiety I experienced became a bigger issue, and I had no idea how to deal with it. COVID regulations felt endless, and I didn't know what to do to keep myself sane.</p>
@@ -118,15 +118,15 @@
     </section>
 
     <!-- Imagem 1 -->
-    <div class="case-img-full case-reveal">
+    <div class="case-img-full">
       <div class="case-img-placeholder case-img-placeholder--bottom">
         <img src="assets/case-wisechat/img-case-1.png" alt="Case image 1" class="case-img-inner" width="1000" height="680" loading="lazy" />
       </div>
     </div>
 
-    <!-- Resultados -->
-    <section class="case-section case-reveal">
-      <h2 class="case-section-title">Resultados</h2>
+    <!-- Solução e resultados -->
+    <section class="case-section">
+      <h2 class="case-section-title">Solução e resultados</h2>
       <div class="case-section-text">
         <p>When the pandemic hit in 2020, I fell into a dark place mentally. The regular anxiety I experienced became a bigger issue, and I had no idea how to deal with it. COVID regulations felt endless, and I didn't know what to do to keep myself sane.</p>
         <p>In 2022, I began writing daily in a journaling app, which helped me take what was in my head and express it in words even if I was the only one reading them. Along with therapy and many other tools, daily journaling helped me navigate life.</p>
@@ -134,28 +134,28 @@
     </section>
 
     <!-- Imagem 2 -->
-    <div class="case-img-full case-reveal">
+    <div class="case-img-full">
       <div class="case-img-placeholder case-img-placeholder--bottom">
         <img src="assets/case-wisechat/img-case-2.png" alt="Case image 2" class="case-img-inner" width="1000" height="680" loading="lazy" />
       </div>
     </div>
 
     <!-- Imagem 3 -->
-    <div class="case-img-full case-reveal">
+    <div class="case-img-full">
       <div class="case-img-placeholder case-img-placeholder--bottom">
         <img src="assets/case-wisechat/img-case-3.png" alt="Case image 3" class="case-img-inner" width="1000" height="680" loading="lazy" />
       </div>
     </div>
 
     <!-- Imagem 4 -->
-    <div class="case-img-full case-reveal">
+    <div class="case-img-full">
       <div class="case-img-placeholder case-img-placeholder--bottom">
         <img src="assets/case-wisechat/img-case-4.png" alt="Case image 4" class="case-img-inner" width="1000" height="680" loading="lazy" />
       </div>
     </div>
 
     <!-- Next Case -->
-    <div class="next-case-wrapper case-reveal">
+    <div class="next-case-wrapper">
     <a href="case-wiseapp.html" class="next-case">
       <div class="next-case-left">
         <div>
@@ -175,7 +175,7 @@
     </div>
 
     <!-- Footer CTA -->
-    <footer class="case-footer case-reveal" id="contato">
+    <footer class="case-footer" id="contato">
       <div class="footer-cta-left">
         <h2 class="footer-cta-title">Bora trabalhar juntos?</h2>
         <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
@@ -247,21 +247,6 @@
       hamburger.setAttribute('aria-label', 'Abrir menu');
     }
 
-    // Scroll reveal: show on scroll down, hide on scroll up
-    (function() {
-      var reveals = document.querySelectorAll('.case-reveal');
-      var observer = new IntersectionObserver(function(entries) {
-        entries.forEach(function(entry) {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-visible');
-          } else {
-            entry.target.classList.remove('is-visible');
-          }
-        });
-      }, { threshold: 0.15 });
-
-      reveals.forEach(function(el) { observer.observe(el); });
-    })();
   </script>
 
 </body>
