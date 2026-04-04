@@ -880,33 +880,138 @@ a {
   text-transform: uppercase;
   font-size: 16px;
   white-space: nowrap;
-  transition: color 0.2s;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
   cursor: pointer;
   width: fit-content;
 }
 
 .back-to-top:hover {
-  color: var(--color-dark);
+  background: #191819;
+  color: #fff;
+  border-color: #191819;
+}
+
+.back-to-top:hover .back-to-top-icon {
+  background: transparent;
+}
+
+.back-to-top:hover .back-to-top-icon svg path {
+  stroke: #fff;
 }
 
 .back-to-top-icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: #F7F7F7;
+  background: transparent;
   border-radius: 500px;
   padding: 8px;
+  transition: background 0.2s;
+}
+
+.back-to-top-icon svg path {
+  transition: stroke 0.2s;
 }
 
 .back-to-top-icon svg {
   transform: rotate(-90deg);
 }
 
+/* ===== ABOUT ME ===== */
+.about-me {
+  padding: 80px 101px 0;
+}
+
+.about-me-inner {
+  display: flex;
+  justify-content: space-between;
+  gap: 48px;
+  border: 1px solid var(--color-low);
+  border-radius: 24px;
+  padding: 32px;
+}
+
+.about-me-left {
+  flex: 1;
+  max-width: 808px;
+}
+
+.about-me-left .case-section-title {
+  margin-bottom: 24px;
+}
+
+.about-me-right {
+  width: 298px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.about-me-right .case-section-title {
+  margin-bottom: 0;
+}
+
+.about-me-jobs {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.about-me-job-title {
+  font-size: 24px;
+  font-weight: 500;
+  color: var(--color-deep);
+  line-height: 1;
+}
+
+.about-me-job-role {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--color-mid);
+  margin-top: 8px;
+  line-height: 1;
+}
+
+.about-me-btn {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  border: 1px solid var(--color-low);
+  border-radius: 500px;
+  font-size: 20px;
+  font-weight: 400;
+  color: var(--color-dark);
+  text-transform: uppercase;
+  text-decoration: none;
+  letter-spacing: 0.6px;
+  transition: color 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.about-me-btn:hover {
+  background: #191819;
+  color: #fff;
+  border-color: #191819;
+}
+
+.about-me-btn:hover .back-to-top-icon {
+  background: transparent;
+}
+
+.about-me-btn:hover .back-to-top-icon svg path {
+  stroke: #fff;
+}
+
+.about-me-btn .back-to-top-icon svg {
+  transform: rotate(90deg);
+}
+
 .case-footer {
   display: flex;
   align-items: flex-end;
   justify-content: space-between;
-  padding: 48px 48px;
+  padding: 64px 101px 48px;
 }
 
 /* ===== NEXT CASE ===== */
@@ -1047,7 +1152,7 @@ a {
   }
 
   .case-footer {
-    padding: 120px 48px;
+    padding: 64px 48px;
   }
 
   .next-case-right {
@@ -1280,6 +1385,35 @@ a {
   .next-case-arrow {
     width: 48px;
     height: 48px;
+  }
+
+  .about-me {
+    padding: 48px 24px 0;
+  }
+
+  .about-me-left .case-section-text {
+    max-width: 100%;
+  }
+
+  .about-me-inner {
+    flex-direction: column;
+    gap: 48px;
+  }
+
+  .about-me-right {
+    width: 100%;
+  }
+
+  .about-me-job-title {
+    font-size: 18px;
+  }
+
+  .about-me-job-role {
+    font-size: 14px;
+  }
+
+  .about-me-btn {
+    font-size: 16px;
   }
 
   .case-footer {
