@@ -1645,6 +1645,22 @@ a {
   color: var(--color-mid);
 }
 
+[data-theme="dark"] .project-info--dark .project-name {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .project-info--dark .project-desc {
+  color: #E9ECEF;
+}
+
+[data-theme="dark"] .project-info--dark .project-action {
+  color: #FFFFFF;
+}
+
+[data-theme="dark"] .project-info--light .project-action {
+  color: #191819;
+}
+
 [data-theme="dark"] .case-hero-visual {
   background: var(--color-hover) !important;
 }
