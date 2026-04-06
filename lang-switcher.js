@@ -25,6 +25,10 @@
     'meta.ano': 'Year',
     'meta.skills': 'Skills',
     'meta.dados': 'Data Analysis',
+    'meta.interacao': 'Interaction Design',
+    'meta.acessibilidade': 'Accessibility',
+    'meta.pesquisa': 'Quantitative Research',
+    'meta.usabilidade': 'Usability Testing',
     'next.veja': 'See also',
     'project.vercase': 'View case'
   };
