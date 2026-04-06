@@ -70,6 +70,9 @@ a {
   background: rgba(255, 255, 255, 0.7);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--color-low);
+  border-radius: 500px;
+  padding: 24px;
 }
 
 .logo {
@@ -122,9 +125,6 @@ a {
   display: flex;
   align-items: center;
   gap: 24px;
-  border: 1px solid var(--color-low);
-  border-radius: 500px;
-  padding: 24px;
   font-size: 16px;
   text-transform: uppercase;
   transition: opacity 0.3s, transform 0.3s;
@@ -1440,23 +1440,6 @@ a {
     padding-bottom: 0;
   }
 
-  .lang-switcher {
-    bottom: 16px;
-    right: 16px;
-    flex-direction: column;
-    gap: 4px;
-    padding: 0;
-    font-size: 16px;
-  }
-
-  .lang-switcher button {
-    font-size: 16px;
-    padding: 8px 12px;
-  }
-
-  .lang-switcher-divider {
-    display: none;
-  }
 }
 
 /* ===== LANGUAGE SWITCHER ===== */
@@ -1505,6 +1488,26 @@ a {
   color: var(--color-muted);
   font-size: 24px;
   line-height: 1;
+}
+
+@media (max-width: 1090px) {
+  .lang-switcher {
+    bottom: 16px;
+    right: 16px;
+    flex-direction: column;
+    gap: 4px;
+    padding: 8px 8px;
+    font-size: 16px;
+  }
+
+  .lang-switcher button {
+    font-size: 16px;
+    padding: 8px 8px;
+  }
+
+  .lang-switcher-divider {
+    display: none;
+  }
 }
 
 /* ===== FOCUS VISIBLE ===== */
