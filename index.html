@@ -16,10 +16,11 @@
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23fff'/%3E%3Cg transform='translate(16,12)'%3E%3Cpath d='M8.51 8.53c.01.48-.09.95-.3 1.38a3.6 3.6 0 01-.81 1.09c-.34.31-.74.55-1.17.71-.45.17-.92.26-1.4.26L0 11.95V0h4.3c.49 0 .98.07 1.44.23.43.14.82.37 1.16.67.33.3.6.67.77 1.08.19.45.28.94.28 1.43 0 .45-.1.89-.3 1.3a3.2 3.2 0 01-.79 1.06c.26.13.49.3.69.49.2.2.38.42.52.67.14.24.25.5.33.77.07.27.11.55.11.83zM5.66 3.45c.01-.26-.05-.52-.17-.75a1.5 1.5 0 00-.44-.58 1.7 1.7 0 00-.64-.31 2.8 2.8 0 00-.75-.1H2.32v3.29l.67.01h.69c.25 0 .5-.03.74-.09.23-.05.45-.15.64-.28.18-.13.34-.3.44-.5.12-.23.17-.48.17-.72zm.45 4.94c0-.24-.05-.47-.14-.69a1.5 1.5 0 00-.39-.53 1.7 1.7 0 00-.57-.34 2.5 2.5 0 00-.7-.12c-.34-.01-.67-.01-1-.01s-.67 0-1 0v3.3h1.73c.25 0 .5-.03.74-.09.24-.06.46-.15.65-.29.19-.13.35-.31.47-.51.12-.23.18-.48.17-.72z' fill='%23191819'/%3E%3Crect x='15' y='6' width='1.6' height='26.2' rx='.8' transform='rotate(44.92 15.8 19.1)' fill='%23191819'/%3E%3Cg transform='translate(19.5,27.5)'%3E%3Cpath d='M12.59 6.2c0 .68-.11 1.36-.34 2.01-.22.63-.55 1.22-.96 1.74l1.19 1.18-1.37 1.37-1.22-1.24a5.9 5.9 0 01-1.67.84 6.3 6.3 0 01-1.93.3c-.84.01-1.67-.16-2.44-.49a6.1 6.1 0 01-2-1.33 6.1 6.1 0 01-1.35-1.96A6.2 6.2 0 010 6.2c0-.83.17-1.65.49-2.41a6.1 6.1 0 011.35-1.97A6.1 6.1 0 013.85.49 6.3 6.3 0 016.29 0c.84 0 1.67.17 2.45.49a6.1 6.1 0 012.01 1.33 6.1 6.1 0 011.35 1.97c.33.76.5 1.58.49 2.41zm-2.26 0c0-.53-.11-1.06-.32-1.55a4.1 4.1 0 00-.87-1.28 4.1 4.1 0 00-1.28-.87 4.1 4.1 0 00-1.57-.32c-.54 0-1.07.11-1.57.32-.48.21-.92.5-1.28.87a4.1 4.1 0 00-.87 1.28 4.1 4.1 0 00-.32 1.55c0 .53.11 1.06.32 1.55.2.48.5.92.87 1.28.37.37.81.66 1.28.87.49.22 1.03.32 1.57.32.37 0 .73-.05 1.08-.15.34-.1.67-.24.98-.42l-1.12-1.09 1.37-1.37 1.11 1.14a3.9 3.9 0 00.63-2.12z' fill='%23191819'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E" />
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+  <link rel="preload" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"></noscript>
   <meta name="theme-color" content="#FFFFFF" />
   <link rel="stylesheet" href="styles.css" />
-  <script src="style-mode.js"></script>
+  <script>(function(){var k='theme',t=localStorage.getItem(k)||'light';document.documentElement.setAttribute('data-theme',t);function a(m){localStorage.setItem(k,m);document.documentElement.setAttribute('data-theme',m);document.querySelectorAll('.style-mode button[data-mode]').forEach(function(b){b.classList.toggle('active',b.getAttribute('data-mode')===m)});var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',m==='dark'?'#191819':'#FFFFFF');}document.addEventListener('DOMContentLoaded',function(){a(t);document.querySelectorAll('.style-mode').forEach(function(s){s.addEventListener('click',function(e){var b=e.target.closest('button[data-mode]');if(!b)return;a(b.getAttribute('data-mode'));});});});})();</script>
 </head>
 <body>
 
@@ -115,7 +116,10 @@
 
     <!-- Frete.com (Template de fretes) -->
     <a href="case-template-frete.html" class="project-card project-card--link" style="background: #E9ECEF;">
-      <img class="project-img" src="assets/main/job_fb.png" alt="Plataforma Frete.com com ranking de gamificação e métricas de operadores" width="1200" height="800" />
+      <picture>
+        <source srcset="assets/main/job_fb.webp" type="image/webp" />
+        <img class="project-img" src="assets/main/job_fb.png" alt="Plataforma Frete.com com ranking de gamificação e métricas de operadores" width="1200" height="800" />
+      </picture>
       <div class="project-blur" style="--blur-color: rgba(233,236,239,0.8);"></div>
       <div class="project-info project-info--light" style="background: rgba(233,236,239,0.7);">
         <div>
@@ -131,7 +135,10 @@
 
     <!-- WiseChat -->
     <a href="case-wisechat.html" class="project-card project-card--link" style="background: #1D1F2E;">
-      <img class="project-img" src="assets/main/job_wisechat.png" alt="Interface do WiseChat com painel de conversas e gestão de equipes" width="1200" height="800" loading="lazy" />
+      <picture>
+        <source srcset="assets/main/job_wisechat.webp" type="image/webp" />
+        <img class="project-img" src="assets/main/job_wisechat.png" alt="Interface do WiseChat com painel de conversas e gestão de equipes" width="1200" height="800" loading="lazy" />
+      </picture>
       <div class="project-blur" style="--blur-color: rgba(29,31,46,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(29,31,46,0.7);">
         <div>
@@ -147,7 +154,10 @@
 
     <!-- WiseApp -->
     <a href="case-wiseapp.html" class="project-card project-card--link" style="background: #02316A;">
-      <img class="project-img" src="assets/main/job_wiseapp.png" alt="App WiseApp com interface de roteirização para motoristas" width="1200" height="800" loading="lazy" />
+      <picture>
+        <source srcset="assets/main/job_wiseapp.webp" type="image/webp" />
+        <img class="project-img" src="assets/main/job_wiseapp.png" alt="App WiseApp com interface de roteirização para motoristas" width="1200" height="800" loading="lazy" />
+      </picture>
       <div class="project-blur" style="--blur-color: rgba(2,49,106,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(2,49,106,0.7);">
         <div>
@@ -163,7 +173,10 @@
 
     <!-- Frete.com VIP -->
     <a href="case-motorista-vip.html" class="project-card project-card--link" style="background: #191819;">
-      <img class="project-img" src="assets/main/job_fb-vip.png" alt="Dashboard do Frete.com VIP com painel SaaS de gestão de fretes" width="1200" height="800" loading="lazy" />
+      <picture>
+        <source srcset="assets/main/job_fb-vip.webp" type="image/webp" />
+        <img class="project-img" src="assets/main/job_fb-vip.png" alt="Dashboard do Frete.com VIP com painel SaaS de gestão de fretes" width="1200" height="800" loading="lazy" />
+      </picture>
       <div class="project-blur" style="--blur-color: rgba(25,24,25,0.8);"></div>
       <div class="project-info project-info--dark" style="background: rgba(25,24,25,0.7);">
         <div>

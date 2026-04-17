@@ -296,9 +296,11 @@ document.querySelectorAll('.project-card:not(.project-card--link)').forEach(func
   });
 
   window.addEventListener('load', function() {
-    measureSet();
-    position = -1;
-    animate();
+    requestAnimationFrame(function() {
+      measureSet();
+      position = -1;
+      animate();
+    });
   });
 
   window.addEventListener('resize', function() {
