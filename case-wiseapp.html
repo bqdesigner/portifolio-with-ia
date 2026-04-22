@@ -74,16 +74,17 @@
 
   <!-- Mobile Overlay Menu -->
   <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação">
-    <a href="index.html#trabalhos" onclick="closeMobileMenu()" data-i18n="nav.trabalhos">Trabalhos</a>
-    <span class="nav-divider" aria-hidden="true">/</span>
-    <a href="#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
-    <span class="nav-divider" aria-hidden="true">/</span>
-    <span class="nav-item-wrapper">
-      <span data-i18n="nav.freelas">Manda freelas</span>
-      <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
-    </span>
-    <span class="nav-divider" aria-hidden="true">/</span>
-    <a href="mailto:bqdesigner@outlook.com">bqdesigner@outlook.com</a>
+    <div class="menu-overlay-links">
+      <a href="index.html#trabalhos" onclick="closeMobileMenu()" data-i18n="nav.trabalhos">Trabalhos</a>
+      <a href="#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
+      <span class="nav-item-wrapper">
+        <span data-i18n="nav.freelas">Manda freelas</span>
+        <span class="nav-tag" data-i18n="nav.embreve">Em breve</span>
+      </span>
+    </div>
+    <div class="menu-overlay-email">
+      <span data-i18n="nav.email.label">Tem um projeto?</span> <a href="mailto:bqdesigner@outlook.com">bqdesigner@outlook.com</a>
+    </div>
   </div>
 
   <!-- CASE CONTENT -->
