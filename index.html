@@ -98,11 +98,12 @@
       <p class="typewriter-line muted" data-text="Unindo craft, IA, dados e estratégia, crio soluções que conectam usuários e negócios com impacto real." data-i18n-page="hero.line2"></p>
     </div>
     <div class="scroll-indicator" role="button" tabindex="0" aria-label="Ver trabalhos">
-      <svg viewBox="0 0 27 55" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M1.5 1.5L13.5 13.5L25.5 1.5" stroke="#E9ECEF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M1.5 21.5L13.5 33.5L25.5 21.5" stroke="#ADB5BD" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-        <path d="M1.5 41.5L13.5 53.5L25.5 41.5" stroke="#6C757D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-      </svg>
+      <span class="scroll-hint-label" data-i18n="scroll.hint">Role para ver</span>
+      <div class="scroll-hint-chevrons" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M6 9l6 6 6-6"/></svg>
+      </div>
     </div>
   </section>
 
@@ -119,8 +120,15 @@
     </div>
   </section>
 
+  <!-- SECTION LABEL: PROJECTS -->
+  <div class="section-label" id="trabalhos">
+    <span>— Projetos / 04</span>
+    <h2 data-i18n="projects.label.title">Cases selecionados</h2>
+    <span data-i18n="projects.label.year">2023 → 2025</span>
+  </div>
+
   <!-- PROJECTS -->
-  <main class="content" id="trabalhos">
+  <main class="content">
 
     <!-- Frete.com (Template de fretes) -->
     <a href="case-template-frete.html" class="project-card project-card--link" style="background: #E9ECEF;">
@@ -136,7 +144,7 @@
         </div>
         <div class="project-action">
           <div class="project-year">// 2025</div>
-          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span><svg class="project-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
         </div>
       </div>
     </a>
@@ -155,7 +163,7 @@
         </div>
         <div class="project-action">
           <div class="project-year">// 2025</div>
-          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span><svg class="project-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
         </div>
       </div>
     </a>
@@ -174,7 +182,7 @@
         </div>
         <div class="project-action">
           <div class="project-year">// 2024</div>
-          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span><svg class="project-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
         </div>
       </div>
     </a>
@@ -193,7 +201,7 @@
         </div>
         <div class="project-action">
           <div class="project-year">// 2023</div>
-          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span> <span class="project-cta-arrow">&rarr;</span></div>
+          <div class="project-cta"><span data-i18n="project.vercase">Ver case</span><svg class="project-cta-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="14" height="14"><path d="M7 17L17 7M9 7h8v8"/></svg></div>
         </div>
       </div>
     </a>
@@ -205,43 +213,60 @@
 
   <!-- About Me -->
   <section class="about-me" id="sobre">
+    <div class="about-me-label">
+      <span data-i18n="about.label.title">Quem é o Bruno</span>
+      <span data-i18n="about.label.sub">12 anos fazendo design</span>
+    </div>
     <div class="about-me-inner">
       <div class="about-me-left">
-        <h2 class="case-section-title" data-i18n="about.title">Sobre</h2>
+        <h2 class="case-section-title" data-i18n="about.tagline">Um designer que transita entre estratégia e execução.</h2>
         <div class="case-section-text">
-          <p data-i18n="about.p1">12 anos trabalhando com Design, sendo os últimos 10 dedicados a UX e produto digital. Já estive à frente do design de projetos na CNN Brasil, Rakuten, Net NOW, Dasa e Fretebras — passando por early stages, startups aportadas e big corps. Atualmente sou Senior Product Designer na Stone, uma das maiores empresas financeiras do Brasil, onde atuo com foco em produto e IA.</p>
-          <p data-i18n="about.p2">Minha trajetória é diversa em contexto, mas consistente em perfil: produtos de alta complexidade operacional — plataformas de logística, ferramentas de gestão, aplicativos de campo, sistemas financeiros — onde simplificar a experiência tem impacto direto em receita e eficiência. Transito entre visão estratégica e execução detalhada: da descoberta e métricas de produto ao visual craft e Design System.</p>
-          <p data-i18n="about.p3">Acredito que o melhor design nasce quando o time entende o problema junto, não quando o designer entrega sozinho.</p>
-          <p>—</p>
-          <p data-i18n="about.p5">Fora do trabalho, provavelmente estarei na academia, ou buscando conhecer lugares que fazem um bom café. Gosto de estar em constante movimento, seja viajando, seja fazendo um esporte radical, seja vivendo.</p>
+          <p data-i18n="about.p1">12 anos de experiência em Design, sendo os últimos 10 dedicados a UX e produto digital. Passagens por CNN Brasil, Rakuten, Net NOW, Dasa e Fretebras — contextos que variam entre early stages, startups aportadas e grandes empresas. Atualmente sou Senior Product Designer na Stone, com foco em produto e IA.</p>
+          <p data-i18n="about.p2">Especialidade em produtos de alta complexidade operacional — plataformas de logística, ferramentas de gestão, aplicativos de campo e sistemas financeiros. Perfil que transita entre visão estratégica e execução detalhada: da descoberta e métricas de produto ao visual craft e Design System.</p>
+        </div>
+        <div class="about-quote" data-i18n="about.p3">"Acredito que o melhor design nasce quando o time entende o problema junto, não quando o designer entrega sozinho."</div>
+        <div class="about-me-tags">
+          <span data-i18n="about.tag1">Academia</span>
+          <span data-i18n="about.tag2">Viagens</span>
+          <span data-i18n="about.tag3">Café de qualidade</span>
+          <span data-i18n="about.tag4">Esportes radicais</span>
         </div>
       </div>
       <div class="about-me-right">
-        <h2 class="case-section-title" data-i18n="about.exp">Experiências</h2>
-        <div class="about-me-jobs">
-          <div class="about-me-job">
-            <p class="about-me-job-title" data-i18n="about.job1">Stone</p>
-            <p class="about-me-job-role">Senior Product Designer — <span data-i18n="about.job1.year">2025/Atual</span></p>
+        <div class="experience-list">
+          <div class="experience-head">
+            <span data-i18n="about.exp.empresa">Empresa</span>
+            <span data-i18n="about.exp.periodo">Período</span>
           </div>
-          <div class="about-me-job">
-            <p class="about-me-job-title">Fretebras</p>
-            <p class="about-me-job-role">Senior Product Designer — 2022/2025</p>
+          <div class="experience-item current">
+            <span class="exp-company">Stone</span>
+            <span class="exp-role">Senior Product Designer</span>
+            <span class="exp-period">2025 / Atual</span>
           </div>
-          <div class="about-me-job">
-            <p class="about-me-job-title">Dasa</p>
-            <p class="about-me-job-role">Product Designer — 2020/2022</p>
+          <div class="experience-item">
+            <span class="exp-company">Fretebras</span>
+            <span class="exp-role">Senior Product Designer</span>
+            <span class="exp-period">2022 / 2025</span>
           </div>
-          <div class="about-me-job">
-            <p class="about-me-job-title">Agile Content</p>
-            <p class="about-me-job-role">Product Designer — 2019/2020</p>
+          <div class="experience-item">
+            <span class="exp-company">Dasa</span>
+            <span class="exp-role">Product Designer</span>
+            <span class="exp-period">2020 / 2022</span>
           </div>
-          <div class="about-me-job">
-            <p class="about-me-job-title">FieldCorp</p>
-            <p class="about-me-job-role">Senior Product Designer — 2019/2019</p>
+          <div class="experience-item">
+            <span class="exp-company">Agile Content</span>
+            <span class="exp-role">Senior Product Designer</span>
+            <span class="exp-period">2019 / 2020</span>
           </div>
-          <div class="about-me-job">
-            <p class="about-me-job-title">Visuall Agency</p>
-            <p class="about-me-job-role">Senior Product Designer — 2018/2019</p>
+          <div class="experience-item">
+            <span class="exp-company">FieldCorp</span>
+            <span class="exp-role">Senior Product Designer</span>
+            <span class="exp-period">2019 / 2019</span>
+          </div>
+          <div class="experience-item">
+            <span class="exp-company">Visuall Agency</span>
+            <span class="exp-role">Senior Product Designer</span>
+            <span class="exp-period">2018 / 2019</span>
           </div>
         </div>
       </div>
@@ -250,16 +275,31 @@
 
   <!-- Footer CTA -->
   <footer class="case-footer" id="contato">
-    <div class="footer-cta-left">
+    <div class="footer-cta">
       <h2 class="footer-cta-title" data-i18n="footer.cta">Bora trabalhar juntos?</h2>
       <a href="mailto:bqdesigner@outlook.com" class="footer-cta-email">bqdesigner@outlook.com</a>
     </div>
-    <div class="footer-links">
-      <a href="https://www.linkedin.com/in/itsbrunoqueiros/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-      <span class="footer-links-dot">&bull;</span>
-      <a href="https://dribbble.com/itsbrunoqueiros" target="_blank" rel="noopener noreferrer">Dribbble</a>
-      <span class="footer-links-dot">&bull;</span>
-      <a href="https://medium.com/@brunoqueiros" target="_blank" rel="noopener noreferrer">Medium</a>
+    <div class="footer-grid">
+      <div class="footer-col">
+        <h4 data-i18n="footer.col1.title">— Contato</h4>
+        <p data-i18n="footer.col1.text">Baseado em São Paulo, atendo remoto.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.col2.title">— Social</h4>
+        <ul>
+          <li><a href="https://www.linkedin.com/in/itsbrunoqueiros/" target="_blank" rel="noopener noreferrer">LinkedIn <svg class="footer-col-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+          <li><a href="https://dribbble.com/itsbrunoqueiros" target="_blank" rel="noopener noreferrer">Dribbble <svg class="footer-col-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+          <li><a href="https://medium.com/@brunoqueiros" target="_blank" rel="noopener noreferrer">Medium <svg class="footer-col-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" width="12" height="12"><path d="M7 17L17 7M9 7h8v8"/></svg></a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.col3.title">— Navegação</h4>
+        <ul>
+          <li><a href="#trabalhos" data-i18n="nav.trabalhos">Trabalhos</a></li>
+          <li><a href="#contato" data-i18n="nav.contato">Contato</a></li>
+          <li><span class="footer-col-disabled" data-i18n="footer.col3.soon">Manda freelas (em breve)</span></li>
+        </ul>
+      </div>
     </div>
   </footer>
 
