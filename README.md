@@ -16,9 +16,7 @@ Site vibecoded usando Claude Code + MCP do Figma, com foco em performance, acess
 
 - Dark/Light mode com persistência via `localStorage`
 - i18n PT/EN client-side (nav, footer e conteúdo de cases)
-- Cases de projeto com parallax de cards empilhados (`position: sticky`)
 - Typewriter animation com suporte a `prefers-reduced-motion`
-- Menu mobile com overlay dedicado
 - Blog integrado puxando posts do Notion, com tempo de leitura calculado
 - Google Analytics em todas as páginas
 - Imagens otimizadas em WebP
