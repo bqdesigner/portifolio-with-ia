@@ -1,6 +1,31 @@
 ### Portfolio desenvolvido totalmente com IA
 
-- Site desenvolvido totalmente com Vibecoding
-- Integrando o MCP do Figma com o Claude para desenvolvimento fiel
-- Uso de Skills para garantir performance, acessibilidade e pixel perfect
-- Para ver o resultado, acesse [brunoqueiros.com](https://brunoqueiros.com)
+Site vibecoded usando Claude Code + MCP do Figma, com foco em performance, acessibilidade e fidelidade pixel-perfect ao design.
+
+**Acesse:** [brunoqueiros.com](https://brunoqueiros.com)
+
+---
+
+#### Stack
+
+- **Site principal:** HTML/CSS/JS vanilla — sem framework, sem bundler
+- **Blog:** Next.js 16 + Notion como CMS (projeto separado em `/blog`, deployado via rewrite no Vercel)
+- **Deploy:** Vercel (push em `main` = deploy automático)
+
+#### Features
+
+- Dark/Light mode com persistência via `localStorage`
+- i18n PT/EN client-side (nav, footer e conteúdo de cases)
+- Cases de projeto com parallax de cards empilhados (`position: sticky`)
+- Typewriter animation com suporte a `prefers-reduced-motion`
+- Menu mobile com overlay dedicado
+- Blog integrado puxando posts do Notion, com tempo de leitura calculado
+- Google Analytics em todas as páginas
+- Imagens otimizadas em WebP
+
+#### Workflow com IA
+
+- **Vibecoding** end-to-end com Claude Code
+- **MCP do Figma** pra traduzir design → código com fidelidade
+- **Skills customizadas** garantindo performance, acessibilidade e pixel-perfect
+- **CLAUDE.md** na raiz com guidelines de comportamento pro agente
