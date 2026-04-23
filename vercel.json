@@ -1,0 +1,9 @@
+{
+  "cleanUrls": true,
+  "rewrites": [
+    {
+      "source": "/blog/:path*",
+      "destination": "https://portifolio-with-ia-blog.vercel.app/blog/:path*"
+    }
+  ]
+}
