@@ -22,7 +22,7 @@ export default async function BlogPage() {
     <main className={styles.main}>
       <header className={styles.header}>
         <a href="https://portifolio-with-ia.vercel.app/" className={styles.back}>← Bruno Queirós</a>
-        <h1 className={styles.title}>Blog</h1>
+        <h1 className={styles.title}>Blog <span className={styles.titleNote}>(em construção)</span></h1>
       </header>
 
       {postsWithTime.length === 0 ? (

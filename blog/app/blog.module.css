@@ -32,6 +32,15 @@
   font-variation-settings: 'opsz' 14;
 }
 
+.titleNote {
+  font-size: 0.35em;
+  font-weight: 400;
+  text-transform: none;
+  color: var(--color-muted);
+  margin-left: 12px;
+  vertical-align: middle;
+}
+
 /* ===== POST LIST ===== */
 .list {
   list-style: none;
