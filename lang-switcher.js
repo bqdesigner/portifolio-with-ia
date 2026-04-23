@@ -98,13 +98,6 @@
       'case.solucao.p5': 'I built and documented a component library specific to the app, with potential to evolve as FieldCorp\'s mobile design system. The project was validated with the stakeholder and is in development.',
       'next.title': 'Building a SaaS that has already generated R$100MM in revenue'
     },
-    'blog.html': {
-      'blog.l1': 'COMING SOON',
-      'blog.l2': 'A SPACE WITH MY THOUGHTS',
-      'blog.l3': 'ABOUT ANYTHING',
-      'blog.l4': 'AND DESIGN TOO',
-      'blog.medium': 'IN THE MEANTIME, SEE WHAT I\'VE WRITTEN ON MEDIUM'
-    },
     'case-motorista-vip.html': {
       'case.title': 'Building a SaaS that has already generated R$100MM in revenue',
       'case.desafio': 'Challenge',
