@@ -36,7 +36,7 @@ export default async function PostPage({ params }) {
   return (
     <main className={styles.main}>
       <nav className={styles.breadcrumb}>
-        <a href="https://portifolio-with-ia.vercel.app/">Bruno Queirós</a>
+        <a href="https://brunoqueiros.com/">Bruno Queirós</a>
         <span>/</span>
         <Link href="/">Blog</Link>
       </nav>

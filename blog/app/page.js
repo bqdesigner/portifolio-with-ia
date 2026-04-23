@@ -21,7 +21,7 @@ export default async function BlogPage() {
   return (
     <main className={styles.main}>
       <header className={styles.header}>
-        <a href="https://portifolio-with-ia.vercel.app/" className={styles.back}>← Bruno Queirós</a>
+        <a href="https://brunoqueiros.com/" className={styles.back}>← Bruno Queirós</a>
         <h1 className={styles.title}>Blog <span className={styles.titleNote}>(em construção)</span></h1>
       </header>
 
