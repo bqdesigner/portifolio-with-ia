@@ -305,3 +305,34 @@ document.querySelectorAll('.project-card:not(.project-card--link)').forEach(func
   apply();
   new MutationObserver(apply).observe(line, { childList: true, subtree: true });
 })();
+
+(function waveCursor() {
+  var outer = document.createElement('div');
+  outer.className = 'wave-cursor';
+  outer.setAttribute('aria-hidden', 'true');
+  var inner = document.createElement('span');
+  inner.className = 'wave-cursor-inner';
+  inner.textContent = '👋';
+  outer.appendChild(inner);
+  document.body.appendChild(outer);
+
+  var active = false;
+  document.addEventListener('mousemove', function (e) {
+    if (!active) return;
+    outer.style.transform = 'translate(' + (e.clientX - 4) + 'px, ' + (e.clientY - 4) + 'px)';
+  }, { passive: true });
+  document.addEventListener('mouseover', function (e) {
+    var t = e.target;
+    if (t && t.classList && t.classList.contains('hero-nickname')) {
+      active = true;
+      outer.classList.add('active');
+    }
+  });
+  document.addEventListener('mouseout', function (e) {
+    var t = e.target;
+    if (t && t.classList && t.classList.contains('hero-nickname')) {
+      active = false;
+      outer.classList.remove('active');
+    }
+  });
+})();
