@@ -39,7 +39,6 @@
   }
   revealOn('.fl-service-card', 0.1);
   revealOn('.fl-payment-card', 0.15);
-  revealOn('.fl-testimonials-inner', 0.15);
   revealOn('.fl-faq-inner', 0.1);
   revealOn('.fl-contact-inner', 0.1);
 
@@ -116,48 +115,6 @@
         fill.style.height = fillPct + '%';
       }
     });
-  })();
-
-  // Testimonials carousel
-  (function testimonials() {
-    var cards = document.querySelectorAll('.fl-testimonial');
-    var dots = document.querySelectorAll('.fl-t-dot');
-    if (!cards.length) return;
-    var active = 0;
-    var intervalId = null;
-
-    function render() {
-      cards.forEach(function (c, i) { c.classList.toggle('active', i === active); });
-      dots.forEach(function (d, i) {
-        d.classList.toggle('active', i === active);
-        // remove any existing fill, inject fresh on active
-        var existing = d.querySelector('.fl-t-dot-fill');
-        if (existing) existing.remove();
-        if (i === active) {
-          var fill = document.createElement('span');
-          fill.className = 'fl-t-dot-fill';
-          d.appendChild(fill);
-        }
-      });
-    }
-
-    function next() { active = (active + 1) % cards.length; render(); }
-
-    function start() {
-      clearInterval(intervalId);
-      intervalId = setInterval(next, 5000);
-    }
-
-    dots.forEach(function (d, i) {
-      d.addEventListener('click', function () {
-        active = i;
-        render();
-        start();
-      });
-    });
-
-    render();
-    start();
   })();
 
   // FAQ accordion

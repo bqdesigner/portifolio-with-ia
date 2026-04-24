@@ -54,6 +54,7 @@
   // Page-specific translations keyed by page filename
   var pages = {
     'index.html': {
+      'hero.line0': "I'm Bruno, also known as Brunão.",
       'hero.line1': 'With over 10 years of design experience, I turn challenges into experiences that generate value.',
       'hero.line2': 'Combining craft, AI, data, and strategy, I create solutions that connect users and businesses with real impact.',
       'project.fb.name': 'Fretebras - Freight Templates',
@@ -103,7 +104,6 @@
       'freelas.hero.l1': "Let's work",
       'freelas.hero.l2': 'together.',
       'freelas.hero.sub': 'Design, web and product — from briefing to delivery. No fluff, straight to the point, with a focus on quality.',
-      'freelas.hero.cta': "Let's talk",
       'freelas.hero.scroll': 'Scroll',
       'freelas.help.label': '— How I can help',
       'freelas.help.1.tag': 'Discovery',
@@ -178,17 +178,6 @@
       'freelas.payment.3.desc': 'Monthly hours reserved for your product. Priority scheduling and progressive discount based on volume.',
       'freelas.payment.badge': 'Most common',
       'freelas.payment.note': '— I accept PIX and bank transfer. Installment payment available for projects above R$5k.',
-      'freelas.testim.label': '— Testimonials',
-      'freelas.testim.title': 'What people say',
-      'freelas.testim.1.quote': 'Bruno delivers fast, pushes back when needed and the final result is always above expectations. One of the best professionals I have worked with.',
-      'freelas.testim.1.name': '— Felipe Marques',
-      'freelas.testim.1.role': 'Head of Product · Fretebras',
-      'freelas.testim.2.quote': 'What surprised me most was his ability to understand the business in depth. He was not a designer who just executed — he was a strategic partner.',
-      'freelas.testim.2.name': '— Rafael Costa',
-      'freelas.testim.2.role': 'CEO · FieldCorp',
-      'freelas.testim.3.quote': 'Clean work, organized file, impeccable handoff. The engineering team loved the delivery — they had no questions left to ask.',
-      'freelas.testim.3.name': '— Luísa Menezes',
-      'freelas.testim.3.role': 'Tech Lead · Stone',
       'freelas.contact.label': "— Let's work together",
       'freelas.contact.title1': "What's your",
       'freelas.contact.title2': 'project?',

@@ -293,3 +293,15 @@ document.querySelectorAll('.project-card:not(.project-card--link)').forEach(func
     measureSet();
   });
 })();
+
+(function decorateNickname() {
+  var line = document.querySelector('.typewriter-line[data-i18n-page="hero.line0"]');
+  if (!line) return;
+  function apply() {
+    line.querySelectorAll('.word').forEach(function (w) {
+      if (/Brunão/.test(w.textContent)) w.classList.add('hero-nickname');
+    });
+  }
+  apply();
+  new MutationObserver(apply).observe(line, { childList: true, subtree: true });
+})();

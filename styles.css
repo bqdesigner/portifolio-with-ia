@@ -407,6 +407,13 @@ a {
   opacity: 1;
 }
 
+.hero-nickname {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-decoration-thickness: 1.5px;
+  cursor: url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E👋%3C/text%3E%3C/svg%3E") 4 4, pointer;
+}
+
 .typewriter-cursor {
   display: none;
   width: 3px;
@@ -2193,23 +2200,6 @@ button:focus-visible,
   line-height: 1.5;
   margin: 0 0 48px;
 }
-.fl-hero-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 28px;
-  border-radius: 999px;
-  background: var(--color-deep);
-  color: var(--color-light);
-  font-size: 15px;
-  font-weight: 500;
-  align-self: flex-start;
-  transition: gap .3s ease, transform .3s ease, box-shadow .3s ease;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.15);
-}
-.fl-hero-cta:hover { gap: 18px; transform: translateY(-2px); box-shadow: 0 16px 40px rgba(0,0,0,0.2); }
-[data-theme="dark"] .fl-hero-cta { background: #F3F1EC; color: #191819; }
-
 /* --- Help (sticky) --- */
 .fl-help-container {
   height: 500vh;
@@ -2528,92 +2518,6 @@ button:focus-visible,
   font-size: 12px;
 }
 
-/* --- Testimonials --- */
-.fl-testimonials {
-  padding: 140px clamp(20px, 5vw, 64px);
-  background: var(--color-deep);
-  color: var(--color-light);
-}
-.fl-testimonials .fl-mono { color: color-mix(in srgb, var(--color-light) 50%, transparent); }
-.fl-testimonials .fl-section-title { color: var(--color-light); }
-.fl-testimonials-inner {
-  position: relative;
-  opacity: 0;
-  transform: translateY(32px);
-  transition: opacity .8s ease, transform .8s cubic-bezier(.22,.61,.36,1);
-  padding: 0 clamp(20px, 5vw, 64px);
-}
-.fl-testimonials-inner.visible { opacity: 1; transform: translateY(0); }
-.fl-quote-mark {
-  font-size: clamp(80px, 10vw, 140px);
-  line-height: .8;
-  font-weight: 700;
-  color: var(--color-accent);
-  margin-bottom: 24px;
-  font-style: italic;
-}
-.fl-testimonials-cards {
-  position: relative;
-  min-height: 260px;
-}
-.fl-testimonial {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 28px;
-  opacity: 0;
-  transform: translateX(24px);
-  transition: opacity .6s ease, transform .6s cubic-bezier(.22,.61,.36,1);
-  pointer-events: none;
-}
-.fl-testimonial.active { opacity: 1; transform: translateX(0); pointer-events: auto; }
-.fl-testimonial-quote {
-  font-size: clamp(20px, 2.2vw, 30px);
-  line-height: 1.45;
-  font-weight: 400;
-  letter-spacing: -0.01em;
-  color: var(--color-light);
-  max-width: 72ch;
-  margin: 0;
-}
-.fl-testimonial-author { display: flex; flex-direction: column; gap: 4px; }
-.fl-testimonial-name { font-weight: 500; font-size: 15px; color: var(--color-light); }
-.fl-testimonial-role {
-  font-size: 11px;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: color-mix(in srgb, var(--color-light) 50%, transparent);
-}
-.fl-testimonials-dots {
-  display: flex;
-  gap: 10px;
-  margin-top: 280px;
-}
-.fl-t-dot {
-  width: 32px; height: 4px;
-  border-radius: 2px;
-  background: color-mix(in srgb, var(--color-light) 25%, transparent);
-  transition: width .3s ease;
-  position: relative;
-  overflow: hidden;
-  padding: 0;
-  border: none;
-  cursor: pointer;
-}
-.fl-t-dot.active { width: 48px; background: color-mix(in srgb, var(--color-light) 15%, transparent); }
-.fl-t-dot-fill {
-  position: absolute;
-  inset: 0;
-  background: var(--color-accent);
-  transform-origin: left;
-  animation: fl-dotFill 5s linear forwards;
-}
-@keyframes fl-dotFill {
-  from { transform: scaleX(0); }
-  to   { transform: scaleX(1); }
-}
-
 /* --- Contact --- */
 .fl-contact {
   padding: 140px clamp(20px, 5vw, 64px);
@@ -2887,7 +2791,4 @@ button:focus-visible,
 /* Responsive tweaks */
 @media (max-width: 900px) {
   .fl-payment-card.highlight { order: -1; }
-}
-@media (max-width: 640px) {
-  .fl-testimonials-dots { margin-top: 320px; }
 }
