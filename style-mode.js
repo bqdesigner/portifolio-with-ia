@@ -1,7 +1,7 @@
 // Style Mode — handles light/dark theme toggle with localStorage persistence
 (function () {
   var STORAGE_KEY = 'theme';
-  var savedTheme = localStorage.getItem(STORAGE_KEY) || 'light';
+  var savedTheme = localStorage.getItem(STORAGE_KEY) || 'dark';
 
   // Apply theme immediately to avoid flash
   document.documentElement.setAttribute('data-theme', savedTheme);

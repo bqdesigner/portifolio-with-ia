@@ -100,6 +100,11 @@ a {
   border: 1px solid var(--color-low);
   border-radius: 500px;
   padding: 24px;
+  transition: border-color 0.25s ease, opacity 0.3s, transform 0.3s;
+}
+
+.header--scrolled .nav:hover {
+  border-color: var(--color-dark);
 }
 
 .logo {
@@ -334,16 +339,20 @@ a {
 
 /* ===== STYLE MODE (in header) ===== */
 .header-controls {
+  position: absolute;
+  top: 36px;
+  right: 48px;
   display: flex;
+  flex-direction: column-reverse;
   align-items: center;
   gap: 8px;
   background: var(--color-light);
   border: 1px solid var(--color-low);
-  border-radius: 500px;
-  padding: 8px 16px;
+  border-radius: 28px;
+  padding: 8px;
   font-family: var(--font);
   font-size: 20px;
-  transition: opacity 0.3s, transform 0.3s, padding 0.35s ease;
+  transition: opacity 0.3s, transform 0.3s, gap 0.3s ease;
 }
 
 .header--scrolled .header-controls {
@@ -354,24 +363,28 @@ a {
 
 .header-controls-items {
   display: flex;
-  align-items: center;
-  gap: 8px;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 4px;
   overflow: hidden;
-  max-width: 0;
+  max-height: 0;
   opacity: 0;
-  transition: max-width 0.4s ease, opacity 0.25s ease 0.05s;
   pointer-events: none;
+  transition: max-height 0.35s ease, opacity 0.2s ease;
 }
 
 .header-controls.expanded .header-controls-items {
-  max-width: 320px;
+  max-height: 400px;
   opacity: 1;
   pointer-events: auto;
 }
 
 .header-controls:not(.expanded) {
-  padding: 8px;
   gap: 0;
+}
+
+.header-controls-items .header-controls-divider {
+  display: none;
 }
 
 .header-controls button {
@@ -453,13 +466,25 @@ a {
 }
 
 .hero-nickname {
-  text-decoration: underline;
-  text-underline-offset: 4px;
-  text-decoration-thickness: 1.5px;
+  position: relative;
+  background-image: linear-gradient(90deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 55%, #000));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-decoration: none;
   cursor: none;
 }
 
-[data-theme="dark"] .hero-nickname { color: var(--color-accent); }
+.hero-nickname::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -4px;
+  height: 1.5px;
+  background: linear-gradient(90deg, var(--color-accent), color-mix(in srgb, var(--color-accent) 55%, #000));
+  border-radius: 1px;
+}
 
 .wave-cursor {
   position: fixed;
@@ -1625,15 +1650,23 @@ a {
 
   .header-controls .header-controls-toggle { display: none !important; }
   .header-controls-items {
+    position: static;
+    flex-direction: row;
+    align-items: center;
     display: flex;
-    max-width: none;
+    max-height: none;
     opacity: 1;
     overflow: visible;
     pointer-events: auto;
+    padding: 0;
+    background: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    transform: none;
   }
-  .header-controls:not(.expanded) {
-    padding: 8px;
-    gap: 8px;
+  .header-controls-items .header-controls-divider {
+    display: inline;
   }
 
   .nav {

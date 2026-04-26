@@ -14,13 +14,16 @@
   <nav class="nav">
     <a href="index.html#trabalhos" data-i18n="nav.trabalhos">Trabalhos</a>
     <span class="nav-divider" aria-hidden="true">/</span>
-    <a href="index.html#contato" data-i18n="nav.contato">Contato</a>
+    <a href="#contato" data-i18n="nav.contato">Contato</a>
     <span class="nav-divider" aria-hidden="true">/</span>
-    <a href="/blog" data-i18n="nav.blog">Blog</a>
+    <a href="/blog" class="nav-item-wrapper">
+      <span data-i18n="nav.blog">Blog</span>
+      <span class="nav-tag" data-i18n="nav.embreve">Breve</span>
+    </a>
     <span class="nav-divider" aria-hidden="true">/</span>
     <a href="#" class="nav-item-wrapper">
       <span data-i18n="nav.freelas">Manda freelas</span>
-      <span class="nav-tag" data-i18n="nav.embreve">Novo</span>
+      <span class="nav-tag" data-i18n="nav.embreve">Breve</span>
     </a>
   </nav>
 
@@ -49,11 +52,14 @@
 <div class="mobile-overlay" id="mobileOverlay" role="dialog" aria-modal="true" aria-label="Menu de navegação">
   <div class="menu-overlay-links">
     <a href="index.html#trabalhos" onclick="closeMobileMenu()" data-i18n="nav.trabalhos">Trabalhos</a>
-    <a href="index.html#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
-    <a href="/blog" onclick="closeMobileMenu()" data-i18n="nav.blog">Blog</a>
+    <a href="#contato" onclick="closeMobileMenu()" data-i18n="nav.contato">Contato</a>
+    <a href="/blog" onclick="closeMobileMenu()" class="nav-item-wrapper">
+      <span data-i18n="nav.blog">Blog</span>
+      <span class="nav-tag" data-i18n="nav.embreve">Breve</span>
+    </a>
     <a href="#" onclick="closeMobileMenu()" class="nav-item-wrapper">
       <span data-i18n="nav.freelas">Manda freelas</span>
-      <span class="nav-tag" data-i18n="nav.embreve">Novo</span>
+      <span class="nav-tag" data-i18n="nav.embreve">Breve</span>
     </a>
   </div>
   <div class="menu-overlay-email">

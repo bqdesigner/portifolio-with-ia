@@ -86,6 +86,17 @@
       } else {
         header.classList.remove('header--hidden');
       }
+      if (Math.abs(y - lastY) > 2) {
+        var controls = document.querySelector('.header-controls.expanded');
+        if (controls) {
+          controls.classList.remove('expanded');
+          var toggle = controls.querySelector('.header-controls-toggle');
+          if (toggle) {
+            toggle.setAttribute('aria-expanded', 'false');
+            toggle.setAttribute('aria-label', 'Abrir opções');
+          }
+        }
+      }
       lastY = y;
     }, { passive: true });
   }
