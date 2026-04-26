@@ -17,6 +17,9 @@ Site vibecoded usando Claude Code + MCP do Figma, com foco em performance, acess
 - Dark/Light mode com persistência via `localStorage`
 - i18n PT/EN client-side (nav, footer e conteúdo de cases)
 - Typewriter animation com suporte a `prefers-reduced-motion`
+- Header/footer em partials reutilizáveis (loader injeta via `fetch`)
+- Toggle de controles (theme + lang) escondidos atrás de botão
+- Página **Manda Freelas** — hero com cursor acenando, help/process sticky, serviços, pagamento, FAQ e form multi-step
 - Blog integrado puxando posts do Notion, com tempo de leitura calculado
 - Google Analytics em todas as páginas
 - Imagens otimizadas em WebP

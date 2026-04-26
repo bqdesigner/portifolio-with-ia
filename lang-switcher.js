@@ -255,7 +255,7 @@
     // Update page title
     if (lang === 'en') {
       if (pageKey === 'index.html') {
-        document.title = 'Bruno Queirós - AI Product Designer';
+        document.title = 'Bruno Queirós - Designer Engineer';
       }
     }
 

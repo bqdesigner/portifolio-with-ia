@@ -1,6 +1,6 @@
 import { getPosts, getPostBlocks, getReadingTime } from '@/lib/notion';
-import Link from 'next/link';
 import styles from './blog.module.css';
+import BlogList from './BlogList';
 
 export const revalidate = 60;
 
@@ -18,48 +18,42 @@ export default async function BlogPage() {
     }))
   );
 
+  const totalMin = postsWithTime.reduce((sum, p) => sum + p.readingTime, 0);
+  const totalCats = new Set(postsWithTime.map((p) => p.category).filter(Boolean)).size;
+
   return (
-    <main className={styles.main}>
-      <header className={styles.header}>
-        <a href="https://brunoqueiros.com/" className={styles.back}>← Bruno Queirós</a>
-        <h1 className={styles.title}>Blog <span className={styles.titleNote}>(em construção)</span></h1>
-      </header>
+    <main>
+      <section className={styles.hero}>
+        <div className={styles.heroLabel}>
+          <span className={styles.heroLabelDot} />
+          Textos sobre design, carreira e produto
+        </div>
+        <h1 className={styles.heroTitle}>
+          Ideias que<br /><em>valem seu tempo.</em>
+        </h1>
+        <p className={styles.heroSub}>
+          Escrevo sobre o que aprendo fazendo. Design de produto, freelance, IA e tudo que orbita o trabalho criativo de alto impacto.
+        </p>
+        <div className={styles.heroStats}>
+          <div className={styles.stat}>
+            <span className={styles.statNum}>{postsWithTime.length}</span>
+            <span className={styles.statLabel}>Publicações</span>
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.statNum}>{totalMin}</span>
+            <span className={styles.statLabel}>min de leitura</span>
+          </div>
+          <div className={styles.stat}>
+            <span className={styles.statNum}>{totalCats}</span>
+            <span className={styles.statLabel}>Categorias</span>
+          </div>
+        </div>
+      </section>
 
       {postsWithTime.length === 0 ? (
         <p className={styles.empty}>Nenhum post publicado ainda.</p>
       ) : (
-        <ul className={styles.list}>
-          {postsWithTime.map((post) => (
-            <li key={post.id}>
-              <Link href={`/${post.slug}`} className={styles.card}>
-                <div className={styles.cardMeta}>
-                  {post.category && <span className={styles.category}>{post.category}</span>}
-                  {post.publishedAt && (
-                    <time className={styles.date}>
-                      {new Date(post.publishedAt).toLocaleDateString('pt-BR', {
-                        day: '2-digit', month: 'short', year: 'numeric',
-                      })}
-                    </time>
-                  )}
-                </div>
-                <div className={styles.cardTitleRow}>
-                  <h2 className={styles.cardTitle}>{post.title}</h2>
-                  <span className={styles.readingTime}>{post.readingTime} min</span>
-                </div>
-                {post.excerpt && <p className={styles.excerpt}>{post.excerpt}</p>}
-              </Link>
-              {post.tags.length > 0 && (
-                <div className={styles.tags}>
-                  {post.tags.map((tag) => (
-                    <Link key={tag} href={`/tag/${encodeURIComponent(tag)}`} className={styles.tag}>
-                      {tag}
-                    </Link>
-                  ))}
-                </div>
-              )}
-            </li>
-          ))}
-        </ul>
+        <BlogList posts={postsWithTime} />
       )}
     </main>
   );
