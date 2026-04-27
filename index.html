@@ -29,7 +29,7 @@
   <meta name="theme-color" content="#FFFFFF" />
   <link rel="stylesheet" href="css/core.css" />
   <link rel="stylesheet" href="css/index.css" />
-  <script>(function(){var k='theme',t=localStorage.getItem(k)||'dark';document.documentElement.setAttribute('data-theme',t);var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',t==='dark'?'#191819':'#FFFFFF');})();</script>
+  <script>(function(){try{localStorage.removeItem('theme');}catch(e){}document.documentElement.setAttribute('data-theme','dark');var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content','#191819');})();</script>
 </head>
 <body>
 
@@ -169,7 +169,7 @@
     </div>
     <div class="about-me-inner">
       <div class="about-me-left">
-        <h2 class="case-section-title" data-i18n="about.tagline">Um designer que transita entre estratégia e execução.</h2>
+        <h2 class="case-section-title" data-i18n="about.tagline">Entre execução e estratégia.</h2>
         <div class="case-section-text">
           <p data-i18n="about.p1">12 anos de experiência em Design, sendo os últimos 10 dedicados a UX e produto digital. Passagens por CNN Brasil, Rakuten, Net NOW, Dasa e Fretebras — contextos que variam entre early stages, startups aportadas e grandes empresas. Atualmente sou Senior Product Designer na Stone, com foco em produto e IA.</p>
           <p data-i18n="about.p2">Especialidade em produtos de alta complexidade operacional — plataformas de logística, ferramentas de gestão, aplicativos de campo e sistemas financeiros. Perfil que transita entre visão estratégica e execução detalhada: da descoberta e métricas de produto ao visual craft e Design System.</p>

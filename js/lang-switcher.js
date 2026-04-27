@@ -23,7 +23,7 @@
     'scroll.hint': 'Scroll to view',
     'projects.label.title': 'Selected cases',
     'projects.label.year': '2023 → 2025',
-    'about.tagline': 'A designer who moves between strategy and execution.',
+    'about.tagline': 'Between execution and strategy.',
     'about.label.title': 'Who is Bruno',
     'about.label.sub': '12 years doing design',
     'about.exp': 'Experience',

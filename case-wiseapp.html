@@ -26,7 +26,7 @@
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"></noscript>
   <link rel="stylesheet" href="css/core.css" />
   <link rel="stylesheet" href="css/case.css" />
-  <script>(function(){var k='theme',t=localStorage.getItem(k)||'dark';document.documentElement.setAttribute('data-theme',t);var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',t==='dark'?'#191819':'#FFFFFF');})();</script>
+  <script>(function(){try{localStorage.removeItem('theme');}catch(e){}document.documentElement.setAttribute('data-theme','dark');var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content','#191819');})();</script>
 </head>
 <body>
 
@@ -132,7 +132,7 @@
           </svg>
         </div>
       </div>
-      <div class="next-case-right" style="background: #191819; justify-content: flex-end;">
+      <div class="next-case-right next-case-right--dark" style="background: #191819; justify-content: flex-end;">
         <img src="assets/case-motorista-vip/main-case-img.png" alt="Case Fretebras Motorista" style="width: auto; height: calc(100% - 64px); border-radius: 0;" />
       </div>
     </a>

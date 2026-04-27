@@ -87,9 +87,20 @@
   padding: 0 clamp(20px, 5vw, 64px) 120px;
   align-items: start;
 }
+.articleMain { min-width: 0; }
+.mobileToc { display: none; }
 @media (max-width: 860px) {
   .articleLayout { grid-template-columns: 1fr; gap: 0; }
   .articleSidebar { display: none; }
+  .mobileToc {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 24px;
+    border: 1px solid var(--color-low);
+    border-radius: 12px;
+    margin-bottom: 40px;
+  }
 }
 
 /* ===== BODY ===== */
@@ -222,6 +233,7 @@
   font-size: 11px;
   font-family: var(--font-mono);
   letter-spacing: .04em;
+  text-transform: uppercase;
   transition: background .2s, color .2s;
 }
 .sidebarTag:hover { color: var(--color-mid); }

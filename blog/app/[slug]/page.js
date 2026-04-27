@@ -82,11 +82,25 @@ export default async function PostPage({ params }) {
       </div>
 
       <div className={styles.articleLayout}>
-        <article className={styles.articleBody}>
-          <NotionBlocks blocks={blocks} />
-        </article>
+        <div className={styles.articleMain}>
+          {toc.length > 0 && (
+            <div className={styles.mobileToc}>
+              <span className={styles.sidebarLabel}>— Neste artigo</span>
+              <div className={styles.sidebarToc}>
+                {toc.map((item) => (
+                  <a key={item.id} href={`#${item.id}`} className={styles.tocItem}>
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+          <article className={styles.articleBody}>
+            <NotionBlocks blocks={blocks} />
+          </article>
+        </div>
 
-        <Sidebar toc={toc} tags={post.tags} title={post.title} />
+        <Sidebar toc={toc} tags={post.tags} />
       </div>
 
       {related.length > 0 && (

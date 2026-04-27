@@ -28,7 +28,7 @@ function ArrowIcon() {
   );
 }
 
-function PostCard({ post, featured }) {
+export function PostCard({ post, featured }) {
   const color = catColor(post.category);
   const badgeStyle = {
     color,
@@ -125,7 +125,7 @@ export default function BlogList({ posts }) {
           )}
         </div>
       </section>
-      <Newsletter />
+      {/* <Newsletter /> */}
     </>
   );
 }

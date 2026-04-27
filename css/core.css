@@ -1044,6 +1044,10 @@ a {
   background: var(--color-hover) !important;
 }
 
+[data-theme="dark"] .next-case-right.next-case-right--dark {
+  background: var(--color-hover) !important;
+}
+
 [data-theme="dark"] .next-case-title {
   color: var(--color-dark);
 }
