@@ -1,0 +1,132 @@
+.main {
+  max-width: 860px;
+  margin: 0 auto;
+  padding: 80px 40px 120px;
+  min-height: 100vh;
+}
+
+.header { margin-bottom: 64px; }
+
+.back {
+  font-size: 14px;
+  color: var(--color-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  transition: color 0.2s;
+}
+
+.back:hover { color: var(--color-dark); }
+
+.title {
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 16px;
+  line-height: 1;
+  font-variation-settings: 'opsz' 14;
+}
+
+.adminSub {
+  font-size: 14px;
+  color: var(--color-muted);
+  margin-top: 8px;
+}
+
+.empty {
+  color: var(--color-muted);
+  font-size: 16px;
+}
+
+.list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.list li {
+  padding: 28px 0;
+  border-top: 1px solid var(--color-low);
+}
+
+.list li:last-child {
+  border-bottom: 1px solid var(--color-low);
+}
+
+.card {
+  display: block;
+  transition: opacity 0.2s;
+}
+
+.card:hover { opacity: 0.6; }
+
+.list li .tags { margin-top: 12px; }
+
+.cardMeta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 8px;
+}
+
+.category {
+  font-size: 11px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-accent);
+}
+
+.date {
+  font-size: 13px;
+  color: var(--color-muted);
+}
+
+.cardTitleRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.cardTitle {
+  font-size: clamp(18px, 2.5vw, 24px);
+  font-weight: 700;
+  line-height: 1.2;
+  font-variation-settings: 'opsz' 14;
+}
+
+.readingTime {
+  font-size: 13px;
+  color: var(--color-muted);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.excerpt {
+  font-size: 15px;
+  color: var(--color-mid);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  font-size: 11px;
+  padding: 3px 10px;
+  border-radius: 500px;
+  background: var(--color-hover);
+  color: var(--color-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+@media (max-width: 640px) {
+  .main { padding: 60px 24px 80px; }
+}

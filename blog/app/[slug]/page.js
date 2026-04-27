@@ -1,8 +1,11 @@
 import { getPostBySlug, getPostBlocks, getPosts } from '@/lib/notion';
+import { getReadingTime, slugify } from '@/lib/utils';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
-import NotionBlocks from '@/lib/NotionBlocks';
-import styles from '../blog.module.css';
+import NotionBlocks from './NotionBlocks';
+import styles from './Article.module.css';
+import ReadingProgress from './ReadingProgress';
+import Sidebar from './Sidebar';
 
 export const revalidate = 60;
 
@@ -26,50 +29,79 @@ export async function generateMetadata({ params }) {
   };
 }
 
+function buildToc(blocks) {
+  return blocks
+    .filter((b) => b.type === 'heading_2')
+    .map((b) => {
+      const label = b.heading_2.rich_text.map((r) => r.plain_text).join('');
+      return { id: slugify(label), label };
+    })
+    .filter((t) => t.id && t.label);
+}
+
 export default async function PostPage({ params }) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  const blocks = await getPostBlocks(post.id);
+  const [blocks, allPosts] = await Promise.all([
+    getPostBlocks(post.id),
+    getPosts(),
+  ]);
+
+  const toc = buildToc(blocks);
+  const readingTime = getReadingTime(blocks);
+  const related = allPosts.filter((p) => p.slug !== post.slug).slice(0, 3);
+
+  const dateLabel = post.publishedAt
+    ? new Date(post.publishedAt).toLocaleDateString('pt-BR', {
+        day: '2-digit', month: 'long', year: 'numeric',
+      })
+    : null;
 
   return (
-    <main className={styles.main}>
-      <nav className={styles.breadcrumb}>
-        <a href="https://brunoqueiros.com/">Bruno Queirós</a>
-        <span>/</span>
-        <Link href="/">Blog</Link>
-      </nav>
+    <>
+      <ReadingProgress />
 
-      <article className={styles.article}>
-        <header className={styles.articleHeader}>
-          <div className={styles.cardMeta}>
-            {post.category && <span className={styles.category}>{post.category}</span>}
-            {post.publishedAt && (
-              <time className={styles.date}>
-                {new Date(post.publishedAt).toLocaleDateString('pt-BR', {
-                  day: '2-digit', month: 'long', year: 'numeric',
-                })}
-              </time>
-            )}
-          </div>
-          <h1 className={styles.articleTitle}>{post.title}</h1>
-          {post.excerpt && <p className={styles.articleExcerpt}>{post.excerpt}</p>}
-          {post.tags.length > 0 && (
-            <div className={styles.tags}>
-              {post.tags.map((tag) => (
-                <Link key={tag} href={`/tag/${encodeURIComponent(tag)}`} className={styles.tag}>
-                  {tag}
-                </Link>
-              ))}
-            </div>
+      <div className={styles.articleHero}>
+        <Link href="/" className={styles.articleBack}>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+            <path d="M19 12H5M12 19l-7-7 7-7"/>
+          </svg>
+          Voltar ao blog
+        </Link>
+        <h1 className={styles.articleTitle}>{post.title}</h1>
+        {post.category && <div className={styles.articleCat}>{post.category}</div>}
+        <div className={styles.articleMeta}>
+          {dateLabel && (
+            <span className={styles.articleMetaItem}><strong>{dateLabel}</strong></span>
           )}
-        </header>
-
-        <div className={styles.articleBody}>
-          <NotionBlocks blocks={blocks} />
+          {dateLabel && <span className={styles.articleMetaSep} />}
+          <span className={styles.articleMetaItem}>Leitura de <strong>{readingTime} min</strong></span>
         </div>
-      </article>
-    </main>
+      </div>
+
+      <div className={styles.articleLayout}>
+        <article className={styles.articleBody}>
+          <NotionBlocks blocks={blocks} />
+        </article>
+
+        <Sidebar toc={toc} tags={post.tags} title={post.title} />
+      </div>
+
+      {related.length > 0 && (
+        <div className={styles.articleFooter}>
+          <div className={styles.articleFooterLabel}>— Continue lendo</div>
+          <div className={styles.relatedGrid}>
+            {related.map((r) => (
+              <Link key={r.slug} href={`/${r.slug}`} className={styles.relatedCard}>
+                {r.category && <span className={styles.relatedCat}>{r.category}</span>}
+                <span className={styles.relatedTitle}>{r.title}</span>
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </>
   );
 }

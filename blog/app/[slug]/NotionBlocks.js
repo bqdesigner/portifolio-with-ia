@@ -1,6 +1,13 @@
-// Renderiza blocos do Notion para HTML semântico
+import styles from './NotionBlocks.module.css';
+import { slugify } from '@/lib/utils';
+
 export default function NotionBlocks({ blocks }) {
   return blocks.map((block) => <Block key={block.id} block={block} />);
+}
+
+function headingId(rich) {
+  const text = rich?.map((r) => r.plain_text).join('') ?? '';
+  return slugify(text);
 }
 
 function Block({ block }) {
@@ -8,17 +15,19 @@ function Block({ block }) {
     case 'paragraph':
       return <p>{richText(block.paragraph.rich_text)}</p>;
     case 'heading_1':
-      return <h1>{richText(block.heading_1.rich_text)}</h1>;
+      return <h1 id={headingId(block.heading_1.rich_text)}>{richText(block.heading_1.rich_text)}</h1>;
     case 'heading_2':
-      return <h2>{richText(block.heading_2.rich_text)}</h2>;
+      return <h2 id={headingId(block.heading_2.rich_text)}>{richText(block.heading_2.rich_text)}</h2>;
     case 'heading_3':
-      return <h3>{richText(block.heading_3.rich_text)}</h3>;
+      return <h3 id={headingId(block.heading_3.rich_text)}>{richText(block.heading_3.rich_text)}</h3>;
     case 'bulleted_list_item':
       return <li>{richText(block.bulleted_list_item.rich_text)}</li>;
     case 'numbered_list_item':
       return <li>{richText(block.numbered_list_item.rich_text)}</li>;
     case 'quote':
       return <blockquote>{richText(block.quote.rich_text)}</blockquote>;
+    case 'callout':
+      return <div className={styles.callout}>{richText(block.callout.rich_text)}</div>;
     case 'code':
       return (
         <pre>

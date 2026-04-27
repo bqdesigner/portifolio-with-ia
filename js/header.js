@@ -1,37 +1,8 @@
-// Fetch [data-partial] placeholders, inject markup, then wire header
-// interactions that depend on those elements. Emits `partials-ready`.
+// Wires header behaviors that depend on partials being present in the DOM:
+// theme toggle, scroll show/hide, hamburger menu, controls expand/collapse.
+// Listens for the `partials-ready` event dispatched by loader.js.
 (function () {
-  var placeholders = document.querySelectorAll('[data-partial]');
-  if (!placeholders.length) { wireAll(); dispatchReady(); return; }
-
-  var promises = [];
-  placeholders.forEach(function (el) {
-    var name = el.getAttribute('data-partial');
-    promises.push(
-      fetch('partials/' + name + '.html')
-        .then(function (r) { return r.text(); })
-        .then(function (html) {
-          // Strip live-server's injected hot-reload script (it gets wedged inside SVG)
-          html = html.replace(/<!-- Code injected by live-server -->[\s\S]*?<\/script>/g, '');
-          var parent = el.parentNode;
-          if (!parent) return;
-          var tpl = document.createElement('template');
-          tpl.innerHTML = html;
-          parent.insertBefore(tpl.content, el);
-          parent.removeChild(el);
-        })
-        .catch(function (err) { console.error('partial', name, err); })
-    );
-  });
-
-  Promise.all(promises).then(function () {
-    wireAll();
-    dispatchReady();
-  });
-
-  function dispatchReady() {
-    document.dispatchEvent(new CustomEvent('partials-ready'));
-  }
+  document.addEventListener('partials-ready', wireAll);
 
   function wireAll() {
     wireTheme();

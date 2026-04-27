@@ -1,0 +1,11 @@
+.callout {
+  border-left: 3px solid var(--color-accent);
+  background: color-mix(in srgb, var(--color-accent) 5%, transparent);
+  border-radius: 0 12px 12px 0;
+  padding: 20px 24px;
+  margin: 32px 0;
+  font-size: 16px;
+  color: var(--color-dark);
+  font-style: italic;
+  line-height: 1.6;
+}

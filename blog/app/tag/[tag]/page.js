@@ -1,6 +1,7 @@
-import { getPostsByTag, getPostBlocks, getReadingTime } from '@/lib/notion';
+import { getPostsByTag, getPostBlocks } from '@/lib/notion';
+import { getReadingTime } from '@/lib/utils';
 import Link from 'next/link';
-import styles from '../../blog.module.css';
+import styles from './Tag.module.css';
 
 export const revalidate = 60;
 

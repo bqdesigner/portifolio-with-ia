@@ -1,5 +1,5 @@
 import { getAllPostsForAdmin } from '@/lib/notion';
-import styles from '../blog.module.css';
+import styles from './Admin.module.css';
 
 export const dynamic = 'force-dynamic';
 

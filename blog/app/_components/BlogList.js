@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import styles from './blog.module.css';
+import styles from './BlogList.module.css';
 
 const PALETTE = ['#FF6768', '#C4A8FF', '#6BA6FF', '#8DD5A6', '#FFB347'];
 

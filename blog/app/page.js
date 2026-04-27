@@ -1,6 +1,7 @@
-import { getPosts, getPostBlocks, getReadingTime } from '@/lib/notion';
-import styles from './blog.module.css';
-import BlogList from './BlogList';
+import { getPosts, getPostBlocks } from '@/lib/notion';
+import { getReadingTime } from '@/lib/utils';
+import styles from './Index.module.css';
+import BlogList from './_components/BlogList';
 
 export const revalidate = 60;
 
