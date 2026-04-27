@@ -2,7 +2,32 @@ import styles from './NotionBlocks.module.css';
 import { slugify } from '@/lib/utils';
 
 export default function NotionBlocks({ blocks }) {
-  return blocks.map((block) => <Block key={block.id} block={block} />);
+  const out = [];
+  let i = 0;
+  while (i < blocks.length) {
+    const b = blocks[i];
+    if (b.type === 'bulleted_list_item' || b.type === 'numbered_list_item') {
+      const type = b.type;
+      const group = [];
+      while (i < blocks.length && blocks[i].type === type) {
+        group.push(blocks[i]);
+        i++;
+      }
+      const Tag = type === 'bulleted_list_item' ? 'ul' : 'ol';
+      const key = group[0].id;
+      out.push(
+        <Tag key={key}>
+          {group.map((item) => (
+            <li key={item.id}>{richText(item[type].rich_text)}</li>
+          ))}
+        </Tag>
+      );
+      continue;
+    }
+    out.push(<Block key={b.id} block={b} />);
+    i++;
+  }
+  return out;
 }
 
 function headingId(rich) {
@@ -20,10 +45,6 @@ function Block({ block }) {
       return <h2 id={headingId(block.heading_2.rich_text)}>{richText(block.heading_2.rich_text)}</h2>;
     case 'heading_3':
       return <h3 id={headingId(block.heading_3.rich_text)}>{richText(block.heading_3.rich_text)}</h3>;
-    case 'bulleted_list_item':
-      return <li>{richText(block.bulleted_list_item.rich_text)}</li>;
-    case 'numbered_list_item':
-      return <li>{richText(block.numbered_list_item.rich_text)}</li>;
     case 'quote':
       return <blockquote>{richText(block.quote.rich_text)}</blockquote>;
     case 'callout':

@@ -150,13 +150,12 @@
 }
 .articleBody a:hover { border-color: var(--color-accent); }
 .articleBody ul, .articleBody ol {
-  padding-left: 24px;
+  padding-left: 1.5em;
   margin: 0 0 28px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
+  list-style-position: outside;
 }
-.articleBody li { padding-left: 8px; }
+.articleBody li { padding-left: 8px; margin-bottom: 10px; }
+.articleBody li::marker { color: var(--color-muted); }
 .articleBody blockquote {
   border-left: 3px solid var(--color-accent);
   padding: 4px 0 4px 20px;
