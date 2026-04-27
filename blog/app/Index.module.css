@@ -1,6 +1,6 @@
 /* ===== INDEX HERO ===== */
 .hero {
-  padding: 160px clamp(20px, 5vw, 64px) 80px;
+  padding: 64px clamp(20px, 5vw, 64px) 80px;
   border-bottom: 1px solid var(--color-low);
 }
 .heroLabel {

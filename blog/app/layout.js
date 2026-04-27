@@ -11,15 +11,10 @@ export const metadata = {
   },
 };
 
-const themeScript = `
-(function(){try{localStorage.removeItem('theme');}catch(e){}document.documentElement.setAttribute('data-theme','dark');})();
-`;
-
 export default function RootLayout({ children }) {
   return (
     <html lang="pt-BR" data-theme="dark" suppressHydrationWarning>
       <head>
-        <script dangerouslySetInnerHTML={{ __html: themeScript }} />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link

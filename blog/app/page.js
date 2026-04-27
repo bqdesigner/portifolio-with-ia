@@ -33,7 +33,7 @@ export default async function BlogPage() {
           Ideias que<br /><em>valem seu tempo.</em>
         </h1>
         <p className={styles.heroSub}>
-          Escrevo sobre o que aprendo fazendo. Design de produto, freelance, IA e tudo que orbita o trabalho criativo de alto impacto.
+          Escrevo sobre o que aprendo fazendo. Design, Produto, IA, Freelance, Carreira e tudo que orbita o trabalho criativo na minha visão.
         </p>
         <div className={styles.heroStats}>
           <div className={styles.stat}>
