@@ -9,7 +9,22 @@
   --color-accent: #FF6768;
   --color-hover: #F7F7F7;
   --font: 'DM Sans', system-ui, sans-serif;
+  --font-mono: 'DM Mono', ui-monospace, monospace;
 }
+
+[data-theme="dark"] {
+  --color-dark: #F0F0F0;
+  --color-deep: #E8E8E8;
+  --color-mid: #9CA3AF;
+  --color-low: #2A2A2A;
+  --color-light: #191819;
+  --color-muted: #6B7280;
+  --color-accent: #FF6768;
+  --color-hover: #2A2A2A;
+}
+
+html { color-scheme: light; }
+[data-theme="dark"] { color-scheme: dark; }
 
 *, *::before, *::after {
   box-sizing: border-box;

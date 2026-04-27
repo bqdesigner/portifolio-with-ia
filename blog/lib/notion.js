@@ -50,14 +50,6 @@ export async function getPostsByTag(tag) {
   return response.results.map(pageToPost);
 }
 
-export function getReadingTime(blocks) {
-  const text = blocks
-    .map((b) => b[b.type]?.rich_text?.map((r) => r.plain_text).join('') ?? '')
-    .join(' ');
-  const words = text.split(/\s+/).filter(Boolean).length;
-  return Math.max(1, Math.round(words / 200));
-}
-
 export async function getPostBlocks(pageId) {
   const blocks = [];
   let cursor;
