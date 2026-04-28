@@ -3,8 +3,9 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import styles from './Article.module.css';
+import Share from './Share';
 
-export default function Sidebar({ toc, tags }) {
+export default function Sidebar({ toc, tags, title }) {
   const [active, setActive] = useState(0);
 
   useEffect(() => {
@@ -31,11 +32,6 @@ export default function Sidebar({ toc, tags }) {
       el.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
     setActive(idx);
-  }
-
-  function copyLink() {
-    if (typeof window === 'undefined') return;
-    navigator.clipboard?.writeText(window.location.href);
   }
 
   return (
@@ -72,13 +68,7 @@ export default function Sidebar({ toc, tags }) {
       <div className={styles.sidebarBlock}>
         <span className={styles.sidebarLabel}>— Compartilhar</span>
         <div className={styles.sidebarShare}>
-          <button type="button" className={styles.shareBtn} onClick={copyLink}>
-            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <rect x="9" y="9" width="13" height="13" rx="2" ry="2"/>
-              <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-            </svg>
-            Copiar link
-          </button>
+          <Share title={title} />
         </div>
       </div>
     </aside>
