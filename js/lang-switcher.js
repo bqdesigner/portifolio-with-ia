@@ -11,6 +11,7 @@
     'nav.guia': 'My AI Guide',
     'nav.freelas': 'Send freelance',
     'nav.embreve': 'Soon',
+    'nav.curriculo': 'Resume',
     'nav.email.label': 'Have a project?',
     'skip': 'Skip to content',
     'footer.cta': "Let's work together?",
