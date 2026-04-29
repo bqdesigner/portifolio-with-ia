@@ -710,9 +710,6 @@
 [data-theme="dark"] .project-card[href*="motorista-vip"] {
   background: #2A2A2A !important;
 }
-[data-theme="dark"] .project-card[href*="motorista-vip"] .project-blur {
-  --blur-color: rgba(42, 42, 42, 0.8);
-}
 [data-theme="dark"] .project-card[href*="motorista-vip"] .project-info {
   background: rgba(42, 42, 42, 0.7) !important;
 }
