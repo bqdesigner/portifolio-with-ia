@@ -65,7 +65,9 @@
       'project.wa.name': 'WiseApp',
       'project.wa.desc': 'Route optimization app for smarter freight transport.',
       'project.vip.name': 'Fretebras - VIP Driver',
-      'project.vip.desc': 'Building a SaaS that has already generated R$100MM in revenue.'
+      'project.vip.desc': 'Building a SaaS that has already generated R$100MM in revenue.',
+      'project.playground.name': 'Playground',
+      'project.playground.desc': 'Explorations of various works done over the years.'
     },
     'case-template-frete.html': {
       'case.title': 'Reducing freight registration and publishing time by up to 70%',

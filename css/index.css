@@ -151,6 +151,8 @@
 .project-card--vip { background: #191819; }
 [data-theme="dark"] .project-card--vip { background: #2A2A2A; }
 
+.project-card--playground { background: #1DA1F2; }
+
 .project-card img.project-img {
   position: absolute;
   top: 64px;
