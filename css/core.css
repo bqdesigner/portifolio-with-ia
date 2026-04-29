@@ -589,7 +589,7 @@ a {
 
 .case-section-text {
   font-size: 24px;
-  font-weight: 500;
+  font-weight: 300;
   line-height: 1.5;
   color: var(--color-mid);
   max-width: 888px;
