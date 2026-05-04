@@ -1,36 +1,59 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### Blog do portfolio
 
-## Getting Started
+Sub-projeto Next.js que serve `/blog` em [brunoqueiros.com](https://brunoqueiros.com), com Notion como CMS. Deployado separado e plugado no site principal via rewrite no Vercel.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+#### Stack
+
+- **Next.js 16** (App Router) + **React 19**
+- **Notion SDK v5** (`@notionhq/client`) puxando posts direto do Notion
+- **CSS Modules** — sem framework de estilo, alinhado com o vanilla do site principal
+- `basePath: '/blog'` no `next.config.mjs` pra rodar embaixo do domínio
+
+#### Features
+
+- Listagem de posts (`app/page.js`) buscando do Notion em build/runtime
+- Página de post (`app/[slug]/page.js`) renderizando blocos do Notion via `NotionBlocks.js`
+- Filtro por tag (`app/tag/[tag]`)
+- Sidebar, share, back-to-top e barra de progresso de leitura
+- Área `/admin` protegida por cookie `admin_token` (proxy em `proxy.js`)
+- Tempo de leitura calculado a partir dos blocos
+- Imagens remotas do S3 do Notion liberadas em `next.config.mjs`
+
+#### Estrutura
+
+```
+app/
+  page.js              → home do blog (lista)
+  [slug]/              → post individual + componentes (Sidebar, Share, ReadingProgress…)
+  tag/[tag]/           → listagem por tag
+  admin/               → login + dashboard
+  api/admin/           → endpoints autenticados
+  _components/         → Header, BlogList compartilhados
+lib/
+  notion.js            → client + queries Notion
+  utils.js             → helpers (slug, reading time, etc)
+scripts/
+  find-data-source.mjs → utilitário pra achar IDs no Notion
+proxy.js               → middleware de auth do /admin
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+#### Dev
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+```bash
+npm install
+npm run dev   # http://localhost:3000/blog
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Variáveis de ambiente necessárias em `.env.local`:
 
-## Learn More
+- `NOTION_TOKEN` — integration token do Notion
+- `NOTION_DATABASE_ID` — database de posts
+- `ADMIN_PASSWORD` — senha pro `/admin`
 
-To learn more about Next.js, take a look at the following resources:
+#### Workflow com IA
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Vibecoding** com Claude Code, igual o site principal
+- `AGENTS.md` avisa que **essa versão do Next.js tem breaking changes** — APIs e estrutura podem divergir do que o LLM aprendeu no treino. Sempre conferir docs em `node_modules/next/dist/docs/` antes de mexer.
+- `CLAUDE.md` na raiz do blog com guidelines de comportamento (think before coding, simplicidade, mudanças cirúrgicas)
