@@ -19,6 +19,18 @@
   color: var(--color-mid);
 }
 
+.hero-text .muted-deep {
+  color: color-mix(in srgb, var(--color-mid) 70%, #000);
+}
+
+[data-theme="light"] .hero-text .muted {
+  color: var(--color-mid);
+}
+
+[data-theme="light"] .hero-text .muted-deep {
+  color: var(--color-muted);
+}
+
 /* ===== TYPEWRITER ===== */
 .typewriter-line .word {
   display: inline;
@@ -102,6 +114,18 @@
 
 .hero-text .muted .typewriter-cursor {
   background: var(--color-mid);
+}
+
+.hero-text .muted-deep .typewriter-cursor {
+  background: color-mix(in srgb, var(--color-mid) 70%, #000);
+}
+
+[data-theme="light"] .hero-text .muted .typewriter-cursor {
+  background: var(--color-mid);
+}
+
+[data-theme="light"] .hero-text .muted-deep .typewriter-cursor {
+  background: var(--color-muted);
 }
 
 @keyframes blink-caret {

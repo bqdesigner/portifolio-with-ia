@@ -6,6 +6,7 @@
   // Shared translations (elements with data-i18n attribute)
   var shared = {
     'nav.trabalhos': 'Work',
+    'nav.playground': 'Playground',
     'nav.contato': 'Contact',
     'nav.blog': 'Blog',
     'nav.guia': 'My AI Guide',
