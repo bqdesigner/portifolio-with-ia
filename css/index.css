@@ -7,7 +7,7 @@ body:has(.dot-pattern) { background: transparent; }
   --dot-size: 2;
   --dot-gap: 24;
   --dot-proximity: 120;
-  --dot-glow-intensity: 0.5;
+  --dot-glow-intensity: 0.2;
   --dot-wave-speed: 0.5;
 }
 [data-theme="dark"] { --dot-glow: #6C757D; --dot-base: #2A2A2A; }

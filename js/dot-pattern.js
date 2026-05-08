@@ -112,8 +112,8 @@
         r = Math.round(bc.r + (gc.r - bc.r) * e);
         g = Math.round(bc.g + (gc.g - bc.g) * e);
         b = Math.round(bc.b + (gc.b - bc.b) * e);
-        opacity = Math.min(1, opacity + e * 0.7);
-        scale += e * 0.8;
+        opacity = Math.min(1, opacity + e * 0.35);
+        scale += e * 0.35;
         glow = e * glowIntensity;
       }
 
