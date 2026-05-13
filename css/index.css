@@ -824,6 +824,13 @@ body:has(.dot-pattern) { background: transparent; }
     align-self: flex-start;
   }
 
+  /* Ano na mesma linha da seta, alinhado à direita (cta fica à esquerda) */
+  .project-year-top {
+    top: auto;
+    bottom: 28px;
+    right: 24px;
+  }
+
   .project-card:hover .project-cta {
     gap: 10px;
     transform: none;
