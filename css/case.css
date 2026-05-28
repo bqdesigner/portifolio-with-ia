@@ -195,10 +195,7 @@
 
 /* ===== NEXT CASE ===== */
 .next-case-wrapper {
-  width: 100%;
-  max-width: 1344px;
-  margin: 80px auto 0;
-  padding: 0;
+  margin: 80px 16px 0;
 }
 
 .next-case {
@@ -388,8 +385,7 @@
   }
 
   .next-case-wrapper {
-    padding: 0 24px;
-    margin-top: 48px;
+    margin: 48px 24px 0;
   }
 
   .next-case {
