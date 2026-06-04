@@ -190,12 +190,19 @@ body:has(.mobile-overlay--open) .logo {
   border-color: var(--color-dark);
 }
 
-.menu-trigger-icon {
+.menu-trigger-icon line {
   transition: transform 0.35s ease;
+  transform-box: view-box;
+  transform-origin: center;
 }
 
-.menu-trigger.hamburger--open .menu-trigger-icon {
-  transform: rotate(45deg);
+/* Aberto: os 2 traços convergem pro centro e cruzam, formando um X (close). */
+.menu-trigger.hamburger--open .menu-trigger-icon line:nth-child(1) {
+  transform: rotate(45deg) translateY(3.5px);
+}
+
+.menu-trigger.hamburger--open .menu-trigger-icon line:nth-child(2) {
+  transform: rotate(-45deg) translateY(-3.5px);
 }
 
 /* ===== MENU OVERLAY (full viewport on all sizes) ===== */
