@@ -763,6 +763,12 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
 
   .hero-card {
     padding: 96px 20px 40px;
+    /* Altura fixa: a quebra do texto do rotator é absorvida dentro do card
+       (conteúdo bottom-aligned cresce pra cima), sem empurrar o conteúdo abaixo. */
+    height: 80vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .page-index .header {

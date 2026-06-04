@@ -62,24 +62,6 @@
     }
   }
 
-  // Reserva na linha do título a altura da frase MAIS ALTA (a que quebra em 2
-   // linhas no mobile). Assim a linha já nasce com essa altura e não cresce/encolhe
-   // quando a frase muda — o conteúdo abaixo do hero para de "pular". No desktop
-   // todas têm 1 linha, então a reserva = altura natural (sem efeito colateral).
-  function reserveHeight() {
-    el.parentNode.style.minHeight = '';
-    var probe = document.createElement('span');
-    probe.style.cssText = 'position:absolute;visibility:hidden;white-space:nowrap;';
-    el.appendChild(probe);
-    var maxH = 0;
-    phrases[lang].forEach(function (p) {
-      probe.innerHTML = render(p);
-      if (probe.offsetHeight > maxH) maxH = probe.offsetHeight;
-    });
-    el.removeChild(probe);
-    el.parentNode.style.minHeight = maxH + 'px';
-  }
-
   // Dimensiona o box pela largura/altura reais da frase — o "/" acompanha.
   function setBox(word) {
     el.style.width = word.offsetWidth + 'px';
@@ -97,7 +79,6 @@
   function mount() {
     el.innerHTML = '';
     fitFont();
-    reserveHeight();
     currentText = phrases[lang][i];
     current = makeWord(currentText, 'active');
     el.appendChild(current);
@@ -150,7 +131,6 @@
     lang = newLang;
     i = 0;
     fitFont();
-    reserveHeight();
     swapTo(phrases[lang][i]);
   });
 
@@ -161,7 +141,6 @@
     rzTimer = setTimeout(function () {
       if (current) current.innerHTML = render(currentText); // re-aplica quebra se cruzou o breakpoint
       fitFont();
-      reserveHeight();
       if (current) setBox(current);
     }, 150);
   }, { passive: true });
