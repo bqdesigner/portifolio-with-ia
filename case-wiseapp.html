@@ -27,6 +27,8 @@
   <link rel="stylesheet" href="css/core.css" />
   <link rel="stylesheet" href="css/case.css" />
   <script>(function(){try{var qt=new URLSearchParams(location.search).get('theme');if(qt==='light'||qt==='dark'){localStorage.setItem('theme',qt);var u=new URL(location.href);u.searchParams.delete('theme');history.replaceState(null,'',u.pathname+(u.search||'')+u.hash);}var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',t==='dark'?'#191819':'#FFFFFF');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- Reveal on scroll/load: marca .js-reveal cedo p/ esconder sem flash; respeita prefers-reduced-motion. -->
+  <script>(function(){try{if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-reveal');}}catch(e){}})();</script>
 </head>
 <body>
 
@@ -150,6 +152,12 @@
   <script src="js/reading-progress.js"></script>
   <script src="js/footer-credit.js"></script>
   <script src="js/back-to-top.js"></script>
+  <script src="js/reveal.js"></script>
+
+  <!-- Vidro fosco fixo no rodapé da viewport (progressive blur) -->
+  <div class="viewport-blur" aria-hidden="true">
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+  </div>
 
 </body>
 </html>

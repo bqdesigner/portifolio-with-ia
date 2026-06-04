@@ -1026,3 +1026,96 @@ button:focus-visible,
   }
 }
 
+/* ===== VIDRO FOSCO FIXO (rodapé da viewport) =====
+   Faixa fixa no fundo da viewport que borra o conteúdo rolando por baixo.
+   Progressive blur: camadas com blur crescente (1px no topo -> 7px na base),
+   cada uma visível só numa banda horizontal (máscara). O empilhamento das bandas
+   com bordas suaves gera o degradê: quase nítido em cima, forte embaixo.
+   pointer-events:none pra não bloquear cliques (footer-cta fica sob ela). */
+.viewport-blur {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 48px;
+  z-index: 200;
+  pointer-events: none;
+}
+
+.viewport-blur > div {
+  position: absolute;
+  inset: 0;
+}
+
+.viewport-blur > div:nth-child(1) {
+  backdrop-filter: blur(1px);
+  -webkit-backdrop-filter: blur(1px);
+  -webkit-mask-image: linear-gradient(to bottom, #000 0%, #000 16.66%, transparent 22.66%);
+  mask-image: linear-gradient(to bottom, #000 0%, #000 16.66%, transparent 22.66%);
+}
+.viewport-blur > div:nth-child(2) {
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 10.66%, #000 16.66%, #000 33.33%, transparent 39.33%);
+  mask-image: linear-gradient(to bottom, transparent 10.66%, #000 16.66%, #000 33.33%, transparent 39.33%);
+}
+.viewport-blur > div:nth-child(3) {
+  backdrop-filter: blur(3px);
+  -webkit-backdrop-filter: blur(3px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 27.33%, #000 33.33%, #000 50%, transparent 56%);
+  mask-image: linear-gradient(to bottom, transparent 27.33%, #000 33.33%, #000 50%, transparent 56%);
+}
+.viewport-blur > div:nth-child(4) {
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 44%, #000 50%, #000 66.66%, transparent 72.66%);
+  mask-image: linear-gradient(to bottom, transparent 44%, #000 50%, #000 66.66%, transparent 72.66%);
+}
+.viewport-blur > div:nth-child(5) {
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 60.66%, #000 66.66%, #000 83.33%, transparent 89.33%);
+  mask-image: linear-gradient(to bottom, transparent 60.66%, #000 66.66%, #000 83.33%, transparent 89.33%);
+}
+.viewport-blur > div:nth-child(6) {
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  -webkit-mask-image: linear-gradient(to bottom, transparent 77.33%, #000 83.33%, #000 100%);
+  mask-image: linear-gradient(to bottom, transparent 77.33%, #000 83.33%, #000 100%);
+}
+
+/* ===== REVEAL ON SCROLL/LOAD (index + cases) =====
+   Conteúdo surge com fade + translateY (de baixo pra cima). Reversível: ao sair
+   da viewport (scroll contrário) volta ao estado oculto e some. Gated por
+   .js-reveal (setado no <head> de cada página) pra não dar flash e degradar sem
+   JS / com prefers-reduced-motion. .reveal-in (via reveal.js) revela.
+   NÃO inclui .stack-layer (index): transform nelas quebraria o position:sticky. */
+.js-reveal .hero-title,
+.js-reveal .hero-sub,
+.js-reveal .section-label,
+.js-reveal .content > .project-card,
+.js-reveal .logo-marquee,
+.js-reveal .about-me-left > *,
+.js-reveal .experience-list > *,
+.js-reveal .case-header-section,
+.js-reveal .case-hero-visual,
+.js-reveal .case-meta-item,
+.js-reveal .case-section,
+.js-reveal .case-img-full,
+.js-reveal .next-case,
+.js-reveal .footer-cta,
+.js-reveal .footer-col,
+.js-reveal .footer-bigname,
+.js-reveal .footer-credit {
+  opacity: 0;
+  transform: translateY(28px);
+  transition: opacity 1.8s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform;
+}
+
+.js-reveal .reveal-in {
+  opacity: 1 !important;
+  transform: none !important;
+}
+

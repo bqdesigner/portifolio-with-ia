@@ -117,15 +117,83 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
 }
 
 .hero-img {
-  flex-shrink: 0;
-  width: 500px;
-  height: 400px;
-  background: #242424;
-  border-radius: 16px;
+  display: none;
+}
+
+/* Marquee de logos movido pra dentro do hero (abaixo da descrição). Zera as
+   margens de 160px (eram pra quando ficava entre seções); o gap do hero-left
+   (24px) já dá o respiro. No tema light o hero-card é escuro → logos viram
+   brancos pra ficarem legíveis; no dark o card é claro e o cinza original serve. */
+.hero .logo-marquee {
+  margin: 40px 0 0;
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+  mask-image: linear-gradient(to right, transparent 0%, #000 12%, #000 88%, transparent 100%);
+}
+
+[data-theme="light"] .hero .logo-marquee-track img {
+  filter: brightness(0) invert(1);
+}
+
+/* ===== ROTATOR DO HERO (2ª linha do título) =====
+   Slot-machine vertical: a frase atual sai por cima e a próxima entra de baixo,
+   com slide + fade + leve blur (estilo nitro.framer). Sempre em linha única; o box
+   anima largura/altura (JS mede cada frase) e a transição é sincronizada com o slide
+   pra o "/" acompanhar de forma fluida. No mobile o JS reduz o font-size do rotator
+   pra a frase mais longa caber sem quebrar, mantendo a mesma animação. */
+.hero-rotator {
+  position: relative;
+  display: inline-block;
   overflow: hidden;
-  padding-left: 24px;
-  display: flex;
-  align-items: center;
+  vertical-align: bottom;
+  height: 1.1em; /* default antes do JS medir */
+  width: 0;
+  max-width: 100%;
+  transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              height 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.hero-rotator-word {
+  position: absolute;
+  left: 0;
+  top: 0;
+  white-space: nowrap;
+  will-change: transform, opacity, filter;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              opacity 0.45s ease,
+              filter 0.45s ease;
+}
+
+/* estado de entrada (vem de baixo) */
+.hero-rotator-word.enter {
+  transform: translateY(110%);
+  opacity: 0;
+  filter: blur(6px);
+}
+
+/* posição final (visível) */
+.hero-rotator-word.active {
+  transform: translateY(0);
+  opacity: 1;
+  filter: blur(0);
+}
+
+/* saída (sobe e some) */
+.hero-rotator-word.exit {
+  transform: translateY(-110%);
+  opacity: 0;
+  filter: blur(6px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-rotator,
+  .hero-rotator-word {
+    transition: none;
+  }
+  .hero-rotator-word.enter,
+  .hero-rotator-word.exit {
+    transform: none;
+    filter: none;
+  }
 }
 
 [data-theme="dark"] .hero-img {
@@ -886,3 +954,11 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
 .about-me.stack-layer {
   padding-bottom: 96px;
 }
+
+/* No responsivo, email do footer-cta menor (só na index — footer é compartilhado) */
+@media (max-width: 1090px) {
+  .page-index .footer-cta-email {
+    font-size: clamp(13px, 4.6vw, 21px);
+  }
+}
+

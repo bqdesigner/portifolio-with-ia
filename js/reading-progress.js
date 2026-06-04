@@ -1,4 +1,4 @@
-// Barra de progresso fixa no rodapé — mesma mecânica do blog (ReadingProgress.js).
+// Barra de progresso fixa no topo — mesma mecânica do blog (ReadingProgress.js).
 (function () {
   var bar = document.createElement('div');
   bar.className = 'reading-progress';
