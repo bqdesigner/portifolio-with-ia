@@ -175,7 +175,7 @@ function initFooterCreditTypewriter() {
 if (document.getElementById('footerCredit')) initFooterCreditTypewriter();
 else document.addEventListener('partials-ready', initFooterCreditTypewriter);
 
-// Logo marquee — infinite scroll, reverses on scroll up, pauses on hover
+// Logo marquee — infinite scroll para a direita, pausa no hover
 (function() {
   var track = document.getElementById('marqueeTrack');
   if (!track) return;
@@ -189,19 +189,7 @@ else document.addEventListener('partials-ready', initFooterCreditTypewriter);
   var speed = 0.5;
   var paused = false;
   var position = 0;
-  var scrollDirection = -1;
-  var prevScrollY = window.scrollY;
   var rafId = null;
-
-  window.addEventListener('scroll', function() {
-    var currentY = window.scrollY;
-    if (currentY > prevScrollY) {
-      scrollDirection = -1;
-    } else if (currentY < prevScrollY) {
-      scrollDirection = 1;
-    }
-    prevScrollY = currentY;
-  }, { passive: true });
 
   track.parentElement.addEventListener('mouseenter', function() {
     paused = true;
@@ -223,7 +211,7 @@ else document.addEventListener('partials-ready', initFooterCreditTypewriter);
 
   function animate() {
     if (!paused) {
-      position -= speed * scrollDirection;
+      position += speed; // sempre para a direita
 
       if (position <= -singleSetWidth) {
         position += singleSetWidth;

@@ -30,6 +30,9 @@
   <link rel="stylesheet" href="css/core.css" />
   <link rel="stylesheet" href="css/index.css" />
   <script>(function(){try{var qt=new URLSearchParams(location.search).get('theme');if(qt==='light'||qt==='dark'){localStorage.setItem('theme',qt);var u=new URL(location.href);u.searchParams.delete('theme');history.replaceState(null,'',u.pathname+(u.search||'')+u.hash);}var t=localStorage.getItem('theme')||'light';document.documentElement.setAttribute('data-theme',t);var meta=document.querySelector('meta[name="theme-color"]');if(meta)meta.setAttribute('content',t==='dark'?'#191819':'#FFFFFF');}catch(e){document.documentElement.setAttribute('data-theme','light');}})();</script>
+  <!-- Reveal on scroll/load (só index): marca .js-reveal cedo p/ esconder sem flash;
+       respeita prefers-reduced-motion (não esconde nada). -->
+  <script>(function(){try{if(!window.matchMedia||!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.documentElement.classList.add('js-reveal');}}catch(e){}})();</script>
 </head>
 <body class="page-index">
 
@@ -51,9 +54,21 @@
         <div class="hero-left">
         <h2 class="hero-title">
           <span class="hero-title-line" data-i18n-page="hero.title.l1">Entre a execução</span>
-          <span class="hero-title-line"><span data-i18n-page="hero.title.l2">e a estratégia</span> <span class="hero-title-accent">/</span></span>
+          <span class="hero-title-line"><span class="hero-rotator" id="heroRotator" aria-live="polite"></span> <span class="hero-title-accent">/</span></span>
         </h2>
         <p class="hero-sub" data-i18n-page="hero.sub">Especialista em produtos de alta complexidade — Banco, fintech, logística, saúde, streaming, cripto e muito mais. Transito entre estratégia e execução, da descoberta ao produto no ar, com excelência em craft.</p>
+        <!-- LOGO MARQUEE -->
+        <section class="logo-marquee" aria-label="Empresas parceiras">
+          <div class="logo-marquee-track" id="marqueeTrack">
+            <img src="assets/logos/logo-agile.svg" alt="Agile" width="120" height="32" />
+            <img src="assets/logos/logo-cnn.svg" alt="CNN" width="80" height="32" />
+            <img src="assets/logos/logo-dasa.svg" alt="Dasa" width="100" height="32" />
+            <img src="assets/logos/logo-fb.svg" alt="Fretebras" width="120" height="32" />
+            <img src="assets/logos/logo-rakuten.svg" alt="Rakuten" width="110" height="32" />
+            <img src="assets/logos/logo-stone.svg" alt="Stone" width="100" height="32" />
+            <img src="assets/logos/logo-wisechat.svg" alt="WiseChat" width="120" height="32" />
+          </div>
+        </section>
       </div>
         <div class="hero-img" aria-hidden="true">
           <div class="hero-carrossel-track" id="heroCarrosselTrack">
@@ -175,18 +190,6 @@
 
   </main>
 
-  <!-- LOGO MARQUEE -->
-  <section class="logo-marquee" aria-label="Empresas parceiras">
-    <div class="logo-marquee-track" id="marqueeTrack">
-      <img src="assets/logos/logo-agile.svg" alt="Agile" width="120" height="32" />
-      <img src="assets/logos/logo-cnn.svg" alt="CNN" width="80" height="32" />
-      <img src="assets/logos/logo-dasa.svg" alt="Dasa" width="100" height="32" />
-      <img src="assets/logos/logo-fb.svg" alt="Fretebras" width="120" height="32" />
-      <img src="assets/logos/logo-rakuten.svg" alt="Rakuten" width="110" height="32" />
-      <img src="assets/logos/logo-stone.svg" alt="Stone" width="100" height="32" />
-      <img src="assets/logos/logo-wisechat.svg" alt="WiseChat" width="120" height="32" />
-    </div>
-  </section>
   </div>
   <!-- /stack-projects -->
 
@@ -247,12 +250,20 @@
     <div data-partial="footer-cta"></div>
   </div>
 
+  <!-- Vidro fosco fixo no rodapé da viewport: progressive blur (camadas com blur
+       crescente + máscaras em banda) borrando o conteúdo que passa por baixo -->
+  <div class="viewport-blur" aria-hidden="true">
+    <div></div><div></div><div></div><div></div><div></div><div></div>
+  </div>
+
   <script src="js/loader.js"></script>
   <script src="js/header.js"></script>
   <script src="js/main.js"></script>
   <script src="js/back-to-top.js"></script>
   <script src="js/index-stack.js"></script>
   <script src="js/lang-switcher.js"></script>
+  <script src="js/hero-rotator.js"></script>
+  <script src="js/reveal.js"></script>
 
 </body>
 </html>
