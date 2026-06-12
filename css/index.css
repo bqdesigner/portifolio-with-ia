@@ -583,7 +583,7 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
 
 /* ===== ABOUT ME ===== */
 .about-me {
-  padding: 80px 16px 0;
+  padding: 16px 16px 0;
 }
 
 .about-quote {
@@ -603,7 +603,7 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
   justify-content: space-between;
   gap: 48px;
   border: 1px solid var(--color-low);
-  border-radius: 24px;
+  border-radius: 8px;
   padding: 32px;
 }
 
