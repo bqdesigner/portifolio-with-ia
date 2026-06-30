@@ -47,9 +47,12 @@
       op = 1 - c;
     }
 
-    hero.style.setProperty('--hero-frame', frameK);
-    hero.style.setProperty('--hero-card-h', cardH + 'px');
-    hero.style.setProperty('--hero-op', op);
+    // Vars no <html> (não no .hero) pra que o logo — que vive fora do .hero
+    // (header partial) — também herde --hero-op e suma junto com o conteúdo.
+    var root = document.documentElement;
+    root.style.setProperty('--hero-frame', frameK);
+    root.style.setProperty('--hero-card-h', cardH + 'px');
+    root.style.setProperty('--hero-op', op);
   }
 
   function onScroll() {

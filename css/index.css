@@ -887,6 +887,13 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
     filter: brightness(0);
   }
 
+  /* Logo BQ fica sobre o hero claro → escurece pra não sumir. */
+  [data-theme="dark"] .logo .logo-b path,
+  [data-theme="dark"] .logo .logo-slash rect,
+  [data-theme="dark"] .logo .logo-q path {
+    fill: var(--color-fixed-dark);
+  }
+
   .page-index .header {
     top: 16px;
     left: 12px;
@@ -1123,8 +1130,9 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
    2) encolhe a altura até sumir, com o conteúdo (bottom-aligned) subindo + fade.
    Os cases (.stack-projects) sobem POR CIMA (margin-top negativo + z-index) e
    preenchem o espaço conforme o hero some — sem buraco de bg vazio.
-   Vars (--hero-frame, --hero-card-h, --hero-op) setadas pelo JS no .hero, herdam
-   p/ card/content. Gated por .js-hero-motion — sem JS / reduced-motion = normal. */
+   Vars (--hero-frame, --hero-card-h, --hero-op) setadas pelo JS no <html>, herdam
+   p/ card/content e p/ o logo (fora do .hero). Gated por .js-hero-motion — sem JS
+   / reduced-motion = normal. */
 .js-hero-motion {
   --hero-h0: 85vh; /* altura de repouso do hero (= min-height original desktop) */
 }
@@ -1172,6 +1180,14 @@ body:has(.mobile-overlay--open).page-index .logo svg rect {
 }
 
 .js-hero-motion .hero-content {
+  opacity: var(--hero-op, 1);
+  will-change: opacity;
+}
+
+/* Logo acompanha o hero: fixo (pra não rolar embora antes do fade) e some
+   junto com o conteúdo via --hero-op. */
+.js-hero-motion .logo {
+  position: fixed;
   opacity: var(--hero-op, 1);
   will-change: opacity;
 }
